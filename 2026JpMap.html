@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日本關西9天旅行 2026</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+        header {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        h1 { color: #667eea; font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { color: #666; font-size: 1.2em; }
+        .tab-container {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+        .tab {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            background: transparent;
+            font-size: 16px;
+        }
+        .tab:hover { background: #e9ecef; }
+        .tab.active {
+            background: white;
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+        }
+        .tab-content {
+            display: none;
+            padding: 30px;
+            animation: fadeIn 0.5s;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .day-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        .day-card:hover { transform: translateY(-5px); }
+        .day-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(255,255,255,0.5);
+        }
+        .day-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 20px;
+        }
+        .day-title { flex: 1; }
+        .day-title h2 { color: #2d3748; font-size: 1.8em; margin-bottom: 5px; }
+        .day-date { color: #718096; }
+        .activity {
+            background: white;
+            padding: 15px 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+        }
+        .activity:hover { transform: translateX(5px); }
+        .activity-time {
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-right: 15px;
+            min-width: 80px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        .activity-content { flex: 1; }
+        .activity-name { font-weight: bold; color: #2d3748; margin-bottom: 5px; }
+        .activity-detail { color: #718096; font-size: 0.9em; }
+        .cost {
+            background: #48bb78;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .map-container {
+            width: 100%;
+            height: 600px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            border: 2px solid #e9ecef;
+        }
+        .map-info {
+            background: #e6fffa;
+            border-left: 4px solid #38b2ac;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .map-info h3 { color: #234e52; margin-bottom: 15px; }
+        .map-info ul { list-style: none; padding-left: 0; }
+        .map-info li { padding: 8px 0; color: #2c7a7b; }
+        .map-info li:before {
+            content: "✓ ";
+            color: #38b2ac;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        .map-link {
+            display: inline-block;
+            background: #38b2ac;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+        .map-link:hover { background: #2c7a7b; transform: translateY(-2px); }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .summary-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        .summary-icon { font-size: 3em; margin-bottom: 10px; }
+        .summary-value { font-size: 2em; font-weight: bold; color: #667eea; margin: 10px 0; }
+        .summary-label { color: #718096; }
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+        }
+        .legend-item { display: flex; align-items: center; gap: 8px; }
+        .legend-color { width: 20px; height: 20px; border-radius: 50%; }
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8em; }
+            .tabs { overflow-x: auto; }
+            .day-header { flex-direction: column; text-align: center; }
+            .day-number { margin-bottom: 15px; margin-right: 0; }
+            .activity { flex-direction: column; align-items: flex-start; }
+            .map-container { height: 400px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🇯🇵 日本關西9天旅行 2026</h1>
+            <p class="subtitle">京都 × 奈良 × 大阪 | 2026年1月17日 - 1月25日</p>
+        </header>
+        
+        <div class="tab-container">
+            <div class="tabs">
+                <button class="tab active" onclick="openTab(event, 'itinerary')">📅 詳細行程</button>
+                <button class="tab" onclick="openTab(event, 'map')">🗺️ 互動地圖</button>
+                <button class="tab" onclick="openTab(event, 'summary')">📊 行程總覽</button>
+            </div>
+            
+            <div id="itinerary" class="tab-content active">
+                <div class="day-card">
+                    <div class="day-header">
+                        <div class="day-number">1</div>
+                        <div class="day-title">
+                            <h2>抵達關西 → 京都</h2>
+                            <p class="day-date">2026年1月17日（五）</p>
+                        </div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">18:40</div>
+                        <div class="activity-content">
+                            <div class="activity-name">✈️ 桃園機場起飛</div>
+                            <div class="activity-detail">Jetstar GK50</div>
+                        </div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">22:10</div>
+                        <div class="activity-content">
+                            <div class="activity-name">🛬 抵達關西機場</div>
+                            <div class="activity-detail">購買ICOCA卡</div>
+                        </div>
+                        <span class="cost">¥2,000</span>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">23:30</div>
+                        <div class="activity-content">
+                            <div class="activity-name">🚌 搭利木津巴士</div>
+                            <div class="activity-detail">前往京都站</div>
+                        </div>
+                        <span class="cost">¥2,600</span>
+                    </div>
+                    <div style="text-align: right; margin-top: 15px; font-weight: bold; color: #667eea;">
+                        今日費用：¥4,600
+                    </div>
+                </div>
+                
+                <div class="day-card">
+                    <div class="day-header">
+                        <div class="day-number">2</div>
+                        <div class="day-title">
+                            <h2>宇治 → 銀閣寺 → 平安神宮</h2>
+                            <p class="day-date">2026年1月18日（六）</p>
+                        </div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">10:00</div>
+                        <div class="activity-content">
+                            <div class="activity-name">⛩️ 平等院</div>
+                            <div class="activity-detail">世界遺產</div>
+                        </div>
+                        <span class="cost">¥600</span>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">11:30</div>
+                        <div class="activity-content">
+                            <div class="activity-name">🍵 伊藤久右衛門</div>
+                            <div class="activity-detail">宇治抹茶料理</div>
+                        </div>
+                        <span class="cost">¥1,800</span>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">14:50</div>
+                        <div class="activity-content">
+                            <div class="activity-name">🏯 銀閣寺</div>
+                        </div>
+                        <span class="cost">¥500</span>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">16:45</div>
+                        <div class="activity-content">
+                            <div class="activity-name">⛩️ 平安神宮</div>
+                        </div>
+                    </div>
+                    <div style="text-align: right; margin-top: 15px; font-weight: bold; color: #667eea;">
+                        今日費用：¥4,810
+                    </div>
+                </div>
+                
+                <div class="day-card">
+                    <div class="day-header">
+                        <div class="day-number">3</div>
+                        <div class="day-title">
+                            <h2>伏見稻荷 → teamLab</h2>
+                            <p class="day-date">2026年1月19日（日）</p>
+                        </div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">08:30</div>
+                        <div class="activity-content">
+                            <div class="activity-name">⛩️ 伏見稻荷大社</div>
+                            <div class="activity-detail">千本鳥居</div>
+                        </div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">14:00</div>
+                        <div class="activity-content">
+                            <div class="activity-name">🎨 teamLab Kyoto</div>
+                        </div>
+                        <span class="cost">¥2,200</span>
+                    </div>
+                    <div style="text-align: right; margin-top: 15px; font-weight: bold; color: #667eea;">
+                        今日費用：¥5,340
+                    </div>
+                </div>
+                
+                <div class="day-card">
+                    <div class="day-header">
+                        <div class="day-number">4</div>
+                        <div class="day-title">
+                            <h2>奈良一日遊</h2>
+                            <p class="day-date">2026年1月20日（一）</p>
+                        </div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">10:00</div>
+                        <div class="activity-content">
+                            <div class="activity-name">🦌 奈良公園</div>
+                            <div class="activity-detail">餵鹿</div>
+                        </div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">12:00</div>
+                        <div class="activity-content">
+                            <div class="activity-name">🏯 東大寺</div>
+                            <div class="activity-detail">大佛殿</div>
+                        </div>
+                        <span class="cost">¥600</span>
+                    </div>
+                    <div style="text-align: right; margin-top: 15px; font-weight: bold; color: #667eea;">
+                        今日費用：¥5,180
+                    </div>
+                </div>
+                
+                <div class="day-card">
+                    <div class="day-header">
+                        <div class="day-number">5</div>
+                        <div class="day-title">
+                            <h2>嵐山一日遊</h2>
+                            <p class="day-date">2026年1月21日（二）</p>
+                        </div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">09:10</div>
+                        <div class="activity-content">
+                            <div class="activity-name">🌉 渡月橋</div>
+                        </div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">09:50</div>
+                        <div class="activity-content">
+                            <div class="activity-name">🏯 天龍寺</div>
+                        </div>
+                        <span class="cost">¥500</span>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">11:20</div>
+                        <div class="activity-content">
+                            <div class="activity-name">🎋 竹林小徑</div>
+                        </div>
+                    </div>
+                    <div style="text-align: right; margin-top: 15px; font-weight: bold; color: #667eea;">
+                        今日費用：¥6,260
+                    </div>
+                </div>
+                
+                <div class="day-card">
+                    <div class="day-header">
+                        <div class="day-number">6</div>
+                        <div class="day-title">
+                            <h2>金閣寺 → 清水寺 → 大阪</h2>
+                            <p class="day-date">2026年1月22日（三）</p>
+                        </div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">08:50</div>
+                        <div class="activity-content">
+                            <div class="activity-name">🏯 金閣寺</div>
+                        </div>
+                        <span class="cost">¥500</span>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">14:00</div>
+                        <div class="activity-content">
+                            <div class="activity-name">🏯 清水寺</div>
+                        </div>
+                        <span class="cost">¥400</span>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">15:30</div>
+                        <div class="activity-content">
+                            <div class="activity-name">⛩️ 八坂神社</div>
+                        </div>
+                    </div>
+                    <div style="text-align: right; margin-top: 15px; font-weight: bold; color: #667eea;">
+                        今日費用：¥6,440
+                    </div>
+                </div>
+                
+                <div class="day-card">
+                    <div class="day-header">
+                        <div class="day-number">7</div>
+                        <div class="day-title">
+                            <h2>環球影城</h2>
+                            <p class="day-date">2026年1月23日（四）</p>
+                        </div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">08:00</div>
+                        <div class="activity-content">
+                            <div class="activity-name">🎢 日本環球影城</div>
+                            <div class="activity-detail">哈利波特、瑪利歐、小小兵</div>
+                        </div>
+                    </div>
+                    <div style="text-align: right; margin-top: 15px; font-weight: bold; color: #667eea;">
+                        今日費用：¥4,110
+                    </div>
+                </div>
+                
+                <div class="day-card">
+                    <div class="day-header">
+                        <div class="day-number">8</div>
+                        <div class="day-title">
+                            <h2>大阪城 → 心齋橋 → 道頓堀</h2>
+                            <p class="day-date">2026年1月24日（五）</p>
+                        </div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">10:00</div>
+                        <div class="activity-content">
+                            <div class="activity-name">🏯 大阪城天守閣</div>
+                        </div>
+                        <span class="cost">¥600</span>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">14:00</div>
+                        <div class="activity-content">
+                            <div class="activity-name">🛍️ 心齋橋購物</div>
+                        </div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">16:00</div>
+                        <div class="activity-content">
+                            <div class="activity-name">🏮 道頓堀</div>
+                        </div>
+                    </div>
+                    <div style="text-align: right; margin-top: 15px; font-weight: bold; color: #667eea;">
+                        今日費用：¥8,700
+                    </div>
+                </div>
+                
+                <div class="day-card">
+                    <div class="day-header">
+                        <div class="day-number">9</div>
+                        <div class="day-title">
+                            <h2>梅田購物 → 返回台灣</h2>
+                            <p class="day-date">2026年1月25日（六）</p>
+                        </div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">09:00</div>
+                        <div class="activity-content">
+                            <div class="activity-name">🛍️ 梅田購物</div>
+                        </div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">17:00</div>
+                        <div class="activity-content">
+                            <div class="activity-name">✈️ 返回台灣</div>
+                        </div>
+                    </div>
+                    <div style="text-align: right; margin-top: 15px; font-weight: bold; color: #667eea;">
+                        今日費用：¥1,450
+                    </div>
+                </div>
+            </div>
+            
+            <div id="map" class="tab-content">
+                <div class="map-info">
+                    <h3>🗺️ 完整旅行地圖</h3>
+                    <ul>
+                        <li>38個景點標記</li>
+                        <li>9天行程用不同顏色區分</li>
+                        <li>每個標記包含時間、費用、詳細說明</li>
+                        <li>可直接點擊標記查看詳細資訊</li>
+                        <li>支援手機 Google Maps App 導航</li>
+                    </ul>
+                    <a href="https://www.google.com/maps/d/u/0/edit?mid=1TzGVYAsNxJTXNgDkUnREb1-g3LzKLc8&usp=sharing" 
+                       target="_blank" class="map-link">
+                        🔗 在新視窗開啟完整地圖
+                    </a>
+                </div>
+                
+                <iframe 
+                    src="https://www.google.com/maps/d/embed?mid=1TzGVYAsNxJTXNgDkUnREb1-g3LzKLc8" 
+                    class="map-container"
+                    allowfullscreen>
+                </iframe>
+                
+                <div class="legend">
+                    <h3 style="width: 100%; margin-bottom: 10px;">📍 圖例說明</h3>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #ff0000;"></div>
+                        <span>Day 1</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #00ff00;"></div>
+                        <span>Day 2</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #0000ff;"></div>
+                        <span>Day 3</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #ffff00;"></div>
+                        <span>Day 4</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #ff00ff;"></div>
+                        <span>Day 5</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #800080;"></div>
+                        <span>Day 6</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #ffa500;"></div>
+                        <span>Day 7</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #00ffff;"></div>
+                        <span>Day 8</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #808080;"></div>
+                        <span>Day 9</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="summary" class="tab-content">
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <div class="summary-icon">📅</div>
+                        <div class="summary-value">9</div>
+                        <div class="summary-label">天數</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">📍</div>
+                        <div class="summary-value">38</div>
+                        <div class="summary-label">景點</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">🏨</div>
+                        <div class="summary-value">3</div>
+                        <div class="summary-label">飯店</div>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-icon">💰</div>
+                        <div class="summary-value">¥47K</div>
+                        <div class="summary-label">預估費用</div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px; background: white; padding: 25px; border-radius: 15px;">
+                    <h2 style="color: #667eea; margin-bottom: 20px;">📋 行程亮點</h2>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                        <div>
+                            <h3 style="color: #2d3748;">🏯 京都（5天）</h3>
+                            <ul style="color: #718096; line-height: 2;">
+                                <li>金閣寺、銀閣寺、清水寺</li>
+                                <li>伏見稻荷千本鳥居</li>
+                                <li>嵐山竹林</li>
+                                <li>teamLab 數位藝術</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 style="color: #2d3748;">🦌 奈良（1天）</h3>
+                            <ul style="color: #718096; line-height: 2;">
+                                <li>奈良公園餵鹿</li>
+                                <li>東大寺大佛殿</li>
+                                <li>春日大社</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 style="color: #2d3748;">🏙️ 大阪（3天）</h3>
+                            <ul style="color: #718096; line-height: 2;">
+                                <li>環球影城</li>
+                                <li>大阪城</li>
+                                <li>心齋橋、道頓堀</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function openTab(evt, tabName) {
+            var tabcontent = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            var tabs = document.getElementsByClassName("tab");
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
