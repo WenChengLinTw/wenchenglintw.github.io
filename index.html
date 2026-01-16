@@ -122,6 +122,12 @@
       margin: 25px 0 15px 0;
     }
     
+    h4 {
+      color: #333;
+      font-size: 1.2em;
+      margin: 15px 0 10px 0;
+    }
+    
     .day-card {
       background: white;
       border-radius: 10px;
@@ -156,6 +162,32 @@
       border-radius: 5px;
       margin-bottom: 15px;
       border-left: 4px solid #ffc107;
+    }
+    
+    .flight-info {
+      background: #e3f2fd;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      border-left: 4px solid #2196F3;
+    }
+    
+    .flight-info h5 {
+      color: #1565c0;
+      margin-bottom: 8px;
+    }
+    
+    .restaurant-box {
+      background: #fff3e0;
+      padding: 15px;
+      border-radius: 5px;
+      margin: 15px 0;
+      border-left: 4px solid #ff9800;
+    }
+    
+    .restaurant-box h5 {
+      color: #e65100;
+      margin-bottom: 10px;
     }
     
     .timeline {
@@ -279,22 +311,54 @@
       margin-bottom: 10px;
     }
     
+    .danger-box {
+      background: #f8d7da;
+      border: 1px solid #f5c6cb;
+      border-radius: 5px;
+      padding: 15px;
+      margin: 15px 0;
+    }
+    
+    .danger-box h4 {
+      color: #721c24;
+      margin-bottom: 10px;
+    }
+    
+    .photo-box {
+      background: #e3f2fd;
+      border: 1px solid #90caf9;
+      border-radius: 5px;
+      padding: 15px;
+      margin: 15px 0;
+    }
+    
+    .photo-box h4 {
+      color: #1565c0;
+      margin-bottom: 10px;
+    }
+    
     .checklist {
       list-style: none;
+      padding: 0;
     }
     
     .checklist li {
-      padding: 8px 0;
-      padding-left: 30px;
+      padding: 10px;
+      padding-left: 35px;
       position: relative;
+      border-bottom: 1px solid #eee;
     }
     
     .checklist li::before {
       content: '☐';
       position: absolute;
-      left: 0;
-      font-size: 1.3em;
+      left: 5px;
+      font-size: 1.5em;
       color: #667eea;
+    }
+    
+    .checklist li:hover {
+      background: #f8f9fa;
     }
     
     .tag {
@@ -325,6 +389,46 @@
       color: #388e3c;
     }
     
+    .emergency-contact {
+      background: #f8d7da;
+      padding: 20px;
+      border-radius: 5px;
+      border-left: 4px solid #dc3545;
+      margin: 15px 0;
+    }
+    
+    .emergency-contact h4 {
+      color: #721c24;
+      margin-bottom: 15px;
+      font-size: 1.3em;
+    }
+    
+    .contact-item {
+      background: white;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .contact-item h5 {
+      color: #dc3545;
+      margin-bottom: 8px;
+      font-size: 1.1em;
+    }
+    
+    .contact-item p {
+      margin: 5px 0;
+      font-size: 1.05em;
+    }
+    
+    .phone-number {
+      font-size: 1.3em;
+      font-weight: bold;
+      color: #dc3545;
+      margin: 5px 0;
+    }
+    
     footer {
       background: #2c3e50;
       color: white;
@@ -346,6 +450,43 @@
     
     .print-button:hover {
       background: #764ba2;
+    }
+    
+    .usj-schedule {
+      background: white;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border-left: 4px solid #ff6b6b;
+    }
+    
+    .usj-schedule h5 {
+      color: #ff6b6b;
+      margin-bottom: 10px;
+    }
+    
+    .photo-spot {
+      background: white;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border-left: 4px solid #2196F3;
+    }
+    
+    .photo-spot h5 {
+      color: #1565c0;
+      margin-bottom: 8px;
+    }
+    
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    
+    .highlight {
+      background: linear-gradient(transparent 60%, #ffeb3b 60%);
+      font-weight: bold;
     }
     
     @media print {
@@ -375,11 +516,10 @@
         flex-direction: column;
         align-items: flex-start;
       }
-    }
-    
-    .highlight {
-      background: linear-gradient(transparent 60%, #ffeb3b 60%);
-      font-weight: bold;
+      
+      .two-column {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -388,7 +528,10 @@
     <header>
       <h1>🇯🇵 2026 日本關西 9天深度遊</h1>
       <p>京都 × 奈良 × 大阪 完整攻略</p>
-      <p style="font-size: 0.9em; margin-top: 10px;">2026/01/17 (五) ~ 2026/01/25 (六)</p>
+      <p style="font-size: 0.9em; margin-top: 10px;">2026/01/17 (六) ~ 2026/01/25 (日)</p>
+      <div style="margin-top: 20px;">
+        <button class="print-button" onclick="window.print()">🖨️ 列印行程</button>
+      </div>
     </header>
     
     <div class="info-bar">
@@ -402,7 +545,7 @@
       </div>
       <div class="info-item">
         <div class="label">預算範圍</div>
-        <div class="value">NT$46,750</div>
+        <div class="value">NT$48,760</div>
       </div>
       <div class="info-item">
         <div class="label">住宿晚數</div>
@@ -417,19 +560,30 @@
         <li><a href="#accommodation">住宿資訊</a></li>
         <li><a href="#transport">交通方案</a></li>
         <li><a href="#budget">預算明細</a></li>
-        <li><a href="#tips">實用資訊</a></li>
         <li><a href="#checklist">行前清單</a></li>
+        <li><a href="#tips">實用資訊</a></li>
+        <li><a href="#emergency">緊急聯絡</a></li>
+        <li><a href="#photo">拍照攻略</a></li>
       </ul>
     </nav>
     
     <section id="overview">
       <h2>📋 行程總覽</h2>
+      
+      <div class="flight-info">
+        <h5>✈️ 航班資訊</h5>
+        <p><strong>去程:</strong> Jetstar Japan GK54</p>
+        <p>桃園機場 (TPE) 18:10 → 大阪關西機場 (KIX) 21:40</p>
+        <p style="margin-top: 10px;"><strong>回程:</strong> Jetstar Japan GK51</p>
+        <p>大阪關西機場 (KIX) 23:10 → 桃園機場 (TPE) 01:30+1</p>
+      </div>
+      
       <div class="tip-box">
         <h4>✨ 行程特色</h4>
         <ul>
           <li>✅ 京都深度遊 6天 - 涵蓋金閣寺、清水寺、伏見稻荷等經典景點</li>
           <li>✅ 奈良一日遊 - 東大寺餵鹿、春日大社</li>
-          <li>✅ 環球影城 - 哈利波特、瑪利歐世界</li>
+          <li>✅ 環球影城 - 哈利波特、瑪利歐世界、飛天翼龍、小小兵</li>
           <li>✅ 大阪市區 - 大阪城、道頓堀、心齋橋購物</li>
           <li>✅ 住宿優質 - 京都市中心、大阪交通便利</li>
         </ul>
@@ -442,64 +596,108 @@
         <strong style="color: #764ba2;">大阪 (3天)</strong> ➜ 
         <strong>關西機場</strong>
       </p>
+      
+      <h3>📅 行程時間軸</h3>
+      <div class="day-card">
+        <ul style="line-height: 2;">
+          <li><strong>Day 1 (1/17 六):</strong> 抵達關西機場 → 京都</li>
+          <li><strong>Day 2 (1/18 日):</strong> 宇治 + 平安神宮</li>
+          <li><strong>Day 3 (1/19 一):</strong> 伏見稻荷 + teamLab</li>
+          <li><strong>Day 4 (1/20 二):</strong> 奈良一日遊</li>
+          <li><strong>Day 5 (1/21 三):</strong> 嵐山一日遊</li>
+          <li><strong>Day 6 (1/22 四):</strong> 京都北部 (金閣寺、銀閣寺)</li>
+          <li><strong>Day 7 (1/23 五):</strong> 清水寺 + 祇園 → 大阪</li>
+          <li><strong>Day 8 (1/24 六):</strong> 環球影城 (哈利波特、瑪利歐、飛天翼龍、小小兵)</li>
+          <li><strong>Day 9 (1/25 日):</strong> 大阪市區 + 返台</li>
+        </ul>
+      </div>
     </section>
-    
     <section id="daily">
       <h2>📅 每日詳細行程</h2>
       
+      <!-- Day 1 -->
       <div class="day-card">
         <div class="day-header">
           <div class="day-title">Day 1</div>
-          <div class="day-date">2026/01/17 (五) - 抵達日</div>
+          <div class="day-date">2026/01/17 (六) - 抵達日</div>
         </div>
-        <div class="accommodation">🏨 住宿: 櫻花台酒店 (京都站步行3分鐘)</div>
+        
+        <div class="flight-info">
+          <h5>✈️ Jetstar Japan GK54</h5>
+          <p>桃園機場 (TPE) 18:10 → 大阪關西機場 (KIX) 21:40</p>
+          <p>飛行時間: 約2小時30分鐘</p>
+        </div>
+        
+        <div class="accommodation">🏨 住宿: 櫻花台酒店</div>
+        
         <div class="timeline">
           <div class="timeline-item">
-            <span class="time">15:10</span>
-            <span class="location">桃園機場第一航廈起飛</span>
+            <span class="time">16:00</span>
+            <span class="location">抵達桃園機場第一航廈</span>
+            <div class="note">⏰ 提前2小時到機場辦理登機</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">18:10</span>
+            <span class="location">桃園機場起飛</span>
+            <span class="transport">✈️ Jetstar GK54</span>
           </div>
           <div class="timeline-item">
             <span class="time">21:40</span>
-            <span class="location">抵達關西國際機場</span>
-            <div class="note">⏰ 入境約需40分鐘</div>
+            <span class="location">關西機場抵達 (第二航廈)</span>
+            <div class="note">🕐 日本時間比台灣快1小時</div>
           </div>
           <div class="timeline-item">
-            <span class="time">22:30</span>
-            <span class="location">購買ICOCA卡 & 取行李</span>
+            <span class="time">22:20</span>
+            <span class="location">入境、取行李、購買ICOCA卡</span>
             <span class="cost">¥2,000</span>
+            <div class="note">💳 ICOCA卡在第二航廈1樓可購買</div>
           </div>
           <div class="timeline-item">
             <span class="time">23:00</span>
             <span class="location">前往京都</span>
-            <span class="transport">🚄 JR關空快速 (75分鐘)</span>
+            <span class="transport">🚄 JR關空快速</span>
             <span class="cost">¥1,210</span>
+            <div class="note">🚆 車程約75分鐘,末班車約23:16</div>
           </div>
           <div class="timeline-item">
             <span class="time">00:30</span>
             <span class="location">櫻花台酒店 Check-in</span>
+            <div class="note">🏨 已提前告知深夜抵達</div>
           </div>
         </div>
-        <div class="tip-box">
-          <h4>💡 第一天小提醒</h4>
+        
+        <div class="restaurant-box">
+          <h5>🍜 今日餐飲建議</h5>
+          <p><strong>晚餐:</strong> 機場便當或飛機餐</p>
+          <p><strong>宵夜:</strong> 便利商店 (7-11、全家、Lawson) ¥500-800</p>
+          <p>📍 京都站周邊24小時便利商店很多</p>
+        </div>
+        
+        <div class="warning-box">
+          <h4>⚠️ 第一天注意事項</h4>
           <ul>
-            <li>✈️ 提前2小時到機場</li>
-            <li>💴 機場可換日幣 (建議¥30,000-50,000)</li>
+            <li>🧳 Jetstar 行李規定: 手提7kg,托運需另外購買</li>
+            <li>⏰ 日本時間 = 台灣時間 + 1小時</li>
+            <li>💴 機場可換日幣,建議換¥30,000-50,000</li>
             <li>📱 機場可租WiFi機或買SIM卡</li>
-            <li>🏨 已提前告知飯店深夜Check-in</li>
+            <li>🚆 注意JR末班車時間,建議盡快出關</li>
           </ul>
         </div>
       </div>
       
+      <!-- Day 2 -->
       <div class="day-card">
         <div class="day-header">
           <div class="day-title">Day 2</div>
-          <div class="day-date">2026/01/18 (六) - 宇治 + 京都東山</div>
+          <div class="day-date">2026/01/18 (日) - 宇治 + 平安神宮</div>
         </div>
-        <div class="accommodation">🏨 住宿: 京都二條Urban飯店Premier (四條河原町)</div>
+        <div class="accommodation">🏨 住宿: 京都二條Urban飯店Premier</div>
+        
         <div class="timeline">
           <div class="timeline-item">
             <span class="time">08:00</span>
             <span class="location">櫻花台酒店 Check-out</span>
+            <div class="note">🥐 飯店早餐或便利商店</div>
           </div>
           <div class="timeline-item">
             <span class="time">09:30</span>
@@ -510,14 +708,13 @@
           <div class="timeline-item">
             <span class="time">10:45</span>
             <span class="location">平等院</span>
-            <span class="tag tag-ticket">門票¥600</span>
-            <div class="note">📸 世界遺產,10元硬幣上的圖案</div>
+            <span class="tag tag-ticket">¥600</span>
+            <div class="note">📸 世界遺產,10元硬幣圖案</div>
           </div>
           <div class="timeline-item">
             <span class="time">12:15</span>
-            <span class="location">伊藤久右衛門 宇治本店</span>
-            <span class="tag tag-food">午餐¥1,500</span>
-            <div class="note">🍵 必吃抹茶蕎麥麵套餐</div>
+            <span class="location">午餐: 伊藤久右衛門 宇治本店</span>
+            <span class="tag tag-food">¥1,500</span>
           </div>
           <div class="timeline-item">
             <span class="time">13:45</span>
@@ -531,32 +728,68 @@
             <div class="note">🏛️ 日本最古老神社建築</div>
           </div>
           <div class="timeline-item">
+            <span class="time">16:00</span>
+            <span class="location">宇治表參道散策</span>
+            <div class="note">🍵 購買抹茶伴手禮</div>
+          </div>
+          <div class="timeline-item">
             <span class="time">17:15</span>
             <span class="location">平安神宮</span>
             <span class="tag tag-free">外苑免費</span>
             <div class="note">⛩️ 朱紅色大鳥居超壯觀</div>
           </div>
           <div class="timeline-item">
+            <span class="time">19:00</span>
+            <span class="location">飯店 Check-in</span>
+          </div>
+          <div class="timeline-item">
             <span class="time">19:30</span>
-            <span class="location">飯店 Check-in & 晚餐</span>
+            <span class="location">晚餐</span>
+            <span class="tag tag-food">¥2,000</span>
           </div>
         </div>
-        <div class="warning-box">
-          <h4>⚠️ 注意事項</h4>
-          <ul>
-            <li>平等院最晚入場 17:15</li>
-            <li>宇治表參道可買抹茶伴手禮</li>
-          </ul>
+        
+        <div class="restaurant-box">
+          <h5>🍜 今日餐廳推薦</h5>
+          
+          <p><strong>🍵 午餐: 伊藤久右衛門 宇治本店</strong></p>
+          <p>💰 預算: ¥1,500-2,000</p>
+          <p>📍 地址: 宇治市宇治蓮華27-2</p>
+          <p>⭐ 推薦: 抹茶蕎麥麵套餐 ¥1,680、抹茶聖代 ¥850</p>
+          <p>📝 特色: 百年老店,必吃抹茶料理</p>
+          
+          <p style="margin-top: 15px;"><strong>🍜 晚餐選擇 (四條河原町周邊)</strong></p>
+          <p><strong>選項1: 一蘭拉麵 河原町店</strong></p>
+          <p>💰 預算: ¥1,200</p>
+          <p>📍 地址: 京都市下京区河原町通四条下ル</p>
+          <p>⭐ 推薦: 豚骨拉麵 ¥980</p>
+          
+          <p style="margin-top: 10px;"><strong>選項2: 京都勝牛 四條烏丸店</strong></p>
+          <p>💰 預算: ¥2,000</p>
+          <p>📍 地址: 京都市下京区烏丸通四条下ル</p>
+          <p>⭐ 推薦: 炸牛排定食 ¥1,780</p>
+          
+          <p style="margin-top: 10px;"><strong>選項3: 天下一品 本店</strong></p>
+          <p>💰 預算: ¥1,000</p>
+          <p>📍 地址: 京都市左京区一乗寺築田町94</p>
+          <p>⭐ 推薦: 濃厚拉麵 ¥850</p>
         </div>
       </div>
       
+      <!-- Day 3 -->
       <div class="day-card">
         <div class="day-header">
           <div class="day-title">Day 3</div>
-          <div class="day-date">2026/01/19 (日) - 伏見稻荷 + teamLab</div>
+          <div class="day-date">2026/01/19 (一) - 伏見稻荷 + teamLab</div>
         </div>
         <div class="accommodation">🏨 住宿: 京都二條Urban飯店Premier</div>
+        
         <div class="timeline">
+          <div class="timeline-item">
+            <span class="time">07:30</span>
+            <span class="location">飯店早餐</span>
+            <div class="note">🥐 飯店免費早餐</div>
+          </div>
           <div class="timeline-item">
             <span class="time">09:00</span>
             <span class="location">伏見稻荷大社</span>
@@ -565,14 +798,13 @@
           </div>
           <div class="timeline-item">
             <span class="time">12:00</span>
-            <span class="location">稻荷站周邊午餐</span>
+            <span class="location">午餐</span>
             <span class="tag tag-food">¥1,200</span>
-            <div class="note">🍱 推薦: けんどん屋 稻荷壽司</div>
           </div>
           <div class="timeline-item">
             <span class="time">14:00</span>
             <span class="location">teamLab Biovortex Kyoto</span>
-            <span class="tag tag-ticket">門票¥2,200</span>
+            <span class="tag tag-ticket">¥2,200</span>
             <div class="note">🎨 需提前官網預約,互動藝術展</div>
           </div>
           <div class="timeline-item">
@@ -584,243 +816,260 @@
             <span class="time">19:30</span>
             <span class="location">晚餐</span>
             <span class="tag tag-food">¥3,000</span>
-            <div class="note">🥩 推薦: 肉奉行 京都牛光</div>
           </div>
         </div>
-        <div class="tip-box">
-          <h4>💡 拍照重點</h4>
-          <ul>
-            <li>📸 千本鳥居 (最經典角度)</li>
-            <li>📸 四辻展望台 (俯瞰京都市區)</li>
-            <li>📸 白狐繪馬</li>
-          </ul>
+        
+        <div class="restaurant-box">
+          <h5>🍜 今日餐廳推薦</h5>
+          
+          <p><strong>🍱 午餐: けんどん屋 (稻荷站周邊)</strong></p>
+          <p>💰 預算: ¥1,200</p>
+          <p>📍 地址: 伏見稻荷大社參道</p>
+          <p>⭐ 推薦: 稻荷壽司套餐 ¥1,080、烏龍麵 ¥850</p>
+          <p>📝 特色: 狐狸造型稻荷壽司超可愛</p>
+          
+          <p style="margin-top: 15px;"><strong>🥩 晚餐: 肉奉行 京都牛光 (京都站)</strong></p>
+          <p>💰 預算: ¥3,000-4,000</p>
+          <p>📍 地址: 京都站伊勢丹11樓</p>
+          <p>⭐ 推薦: 和牛燒肉套餐 ¥3,280、牛舌 ¥1,480</p>
+          <p>📝 特色: 高品質和牛燒肉</p>
+          
+          <p style="margin-top: 10px;"><strong>替代選項: 拉麵小路 (京都站)</strong></p>
+          <p>💰 預算: ¥1,200</p>
+          <p>📍 地址: 京都站伊勢丹10樓</p>
+          <p>⭐ 推薦: 集合多家知名拉麵店</p>
         </div>
       </div>
-      
+      <!-- Day 4 -->
       <div class="day-card">
         <div class="day-header">
           <div class="day-title">Day 4</div>
-          <div class="day-date">2026/01/20 (一) - 奈良一日遊</div>
+          <div class="day-date">2026/01/20 (二) - 奈良一日遊</div>
         </div>
         <div class="accommodation">🏨 住宿: 京都二條Urban飯店Premier</div>
+        
         <div class="timeline">
           <div class="timeline-item">
-            <span class="time">09:00</span>
-            <span class="location">抵達近鐵奈良站</span>
-            <span class="transport">🚃 近鐵京都線</span>
-            <span class="cost">¥640</span>
+            <span class="time">08:00</span>
+            <span class="location">飯店早餐</span>
+            <div class="note">🥐 飯店免費早餐</div>
           </div>
           <div class="timeline-item">
             <span class="time">09:30</span>
-            <span class="location">奈良公園 餵鹿</span>
-            <span class="tag tag-free">鹿仙貝¥200</span>
-            <div class="note">🦌 小心鹿會搶食!</div>
+            <span class="location">前往奈良</span>
+            <span class="transport">🚃 近鐵京都→近鐵奈良</span>
+            <span class="cost">¥640 (單程)</span>
+            <div class="note">🚆 車程約45分鐘</div>
           </div>
           <div class="timeline-item">
-            <span class="time">10:00</span>
+            <span class="time">10:30</span>
+            <span class="location">奈良公園餵鹿</span>
+            <span class="tag tag-free">免費</span>
+            <div class="note">🦌 鹿仙貝 ¥200/包</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">11:30</span>
             <span class="location">東大寺</span>
-            <span class="tag tag-ticket">門票¥600</span>
-            <div class="note">🏛️ 世界最大木造建築,巨大佛像</div>
-          </div>
-          <div class="timeline-item">
-            <span class="time">11:30</span>
-            <span class="location">二月堂</span>
-            <span class="tag tag-free">免費</span>
-            <div class="note">🌄 可俯瞰奈良市區</div>
-          </div>
-          <div class="timeline-item">
-            <span class="time">12:00</span>
-            <span class="location">午餐</span>
-            <span class="tag tag-food">¥1,500</span>
-            <div class="note">🍜 推薦: 志津香 釜飯 (需排隊)</div>
-          </div>
-          <div class="timeline-item">
-            <span class="time">13:30</span>
-            <span class="location">春日大社</span>
-            <span class="tag tag-ticket">本殿¥500</span>
-            <div class="note">🏮 萬燈籠超壯觀</div>
-          </div>
-          <div class="timeline-item">
-            <span class="time">15:00</span>
-            <span class="location">興福寺 五重塔</span>
-            <span class="tag tag-ticket">國寶館¥700</span>
-          </div>
-          <div class="timeline-item">
-            <span class="time">16:00</span>
-            <span class="location">奈良町散策</span>
-            <div class="note">🏘️ 格子之家、商店街</div>
-          </div>
-          <div class="timeline-item">
-            <span class="time">17:30</span>
-            <span class="location">返回京都</span>
-            <span class="transport">🚃 近鐵</span>
-            <span class="cost">¥640</span>
-          </div>
-        </div>
-        <div class="warning-box">
-          <h4>⚠️ 餵鹿注意事項</h4>
-          <ul>
-            <li>🦌 買了鹿仙貝要快餵,鹿會追著你跑</li>
-            <li>🦌 不要拿塑膠袋在鹿面前晃</li>
-            <li>🦌 鹿會鞠躬要食物</li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="day-card">
-        <div class="day-header">
-          <div class="day-title">Day 5</div>
-          <div class="day-date">2026/01/21 (二) - 嵐山一日遊</div>
-        </div>
-        <div class="accommodation">🏨 住宿: 京都二條Urban飯店Premier</div>
-        <div class="timeline">
-          <div class="timeline-item">
-            <span class="time">09:00</span>
-            <span class="location">抵達嵐山</span>
-            <span class="transport">🚃 嵐電</span>
-            <span class="cost">¥230</span>
-          </div>
-          <div class="timeline-item">
-            <span class="time">09:15</span>
-            <span class="location">渡月橋</span>
-            <span class="tag tag-free">免費</span>
-            <div class="note">🌉 嵐山地標,拍照打卡</div>
-          </div>
-          <div class="timeline-item">
-            <span class="time">10:00</span>
-            <span class="location">天龍寺</span>
-            <span class="tag tag-ticket">庭園¥500</span>
-            <div class="note">🏯 世界遺產,曹源池庭園</div>
-          </div>
-          <div class="timeline-item">
-            <span class="time">11:30</span>
-            <span class="location">竹林小徑</span>
-            <span class="tag tag-free">免費</span>
-            <div class="note">🎋 超夢幻竹林隧道</div>
-          </div>
-          <div class="timeline-item">
-            <span class="time">12:00</span>
-            <span class="location">野宮神社</span>
-            <span class="tag tag-free">免費</span>
-          </div>
-          <div class="timeline-item">
-            <span class="time">12:30</span>
-            <span class="location">午餐</span>
-            <span class="tag tag-food">¥1,500</span>
-            <div class="note">🍲 推薦: 湯豆腐 嵯峨野 ¥2,500</div>
-          </div>
-          <div class="timeline-item">
-            <span class="time">14:00</span>
-            <span class="location">嵯峨野觀光小火車</span>
-            <span class="tag tag-ticket">¥880</span>
-            <div class="note">🚂 需提前預約 (或改去常寂光寺)</div>
-          </div>
-          <div class="timeline-item">
-            <span class="time">15:30</span>
-            <span class="location">嵐山商店街散策</span>
-            <div class="note">☕ %Arabica咖啡、老松和菓子</div>
-          </div>
-          <div class="timeline-item">
-            <span class="time">17:00</span>
-            <span class="location">返回京都</span>
-            <span class="transport">🚃 嵐電</span>
-            <span class="cost">¥230</span>
-          </div>
-        </div>
-        <div class="tip-box">
-          <h4>💡 嵐山小火車</h4>
-          <ul>
-            <li>🎫 需提前官網預約或現場購票</li>
-            <li>🍁 冬季風景較普通,春櫻秋楓最美</li>
-            <li>💡 如果沒訂到,可改去常寂光寺+二尊院</li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="day-card">
-        <div class="day-header">
-          <div class="day-title">Day 6</div>
-          <div class="day-date">2026/01/22 (三) - 京都北部 + 銀閣寺</div>
-        </div>
-        <div class="accommodation">🏨 住宿: 京都二條Urban飯店Premier</div>
-        <div class="timeline">
-          <div class="timeline-item">
-            <span class="time">08:45</span>
-            <span class="location">龍安寺</span>
-            <span class="tag tag-ticket">¥500</span>
-            <div class="note">🪨 枯山水代表作 - 石庭</div>
-          </div>
-          <div class="timeline-item">
-            <span class="time">10:00</span>
-            <span class="location">金閣寺</span>
-            <span class="tag tag-ticket">¥500</span>
-            <div class="note">✨ 金光閃閃,鏡湖池倒影超美</div>
-          </div>
-          <div class="timeline-item">
-            <span class="time">12:00</span>
-            <span class="location">北野天滿宮</span>
-            <span class="tag tag-free">免費</span>
-            <div class="note">📚 學問之神,考試必拜</div>
+            <span class="tag tag-ticket">¥600</span>
+            <div class="note">🏛️ 世界最大木造建築,15公尺高大佛</div>
           </div>
           <div class="timeline-item">
             <span class="time">13:00</span>
             <span class="location">午餐</span>
             <span class="tag tag-food">¥1,500</span>
-            <div class="note">🍗 推薦: 鳥岩樓 親子丼</div>
           </div>
           <div class="timeline-item">
-            <span class="time">15:00</span>
-            <span class="location">銀閣寺</span>
-            <span class="tag tag-ticket">¥500</span>
-            <div class="note">🏯 銀沙灘、向月台</div>
+            <span class="time">14:30</span>
+            <span class="location">春日大社</span>
+            <span class="tag tag-free">外苑免費</span>
+            <div class="note">🏮 3000座石燈籠</div>
           </div>
           <div class="timeline-item">
-            <span class="time">16:15</span>
-            <span class="location">哲學之道</span>
-            <span class="tag tag-free">免費</span>
-            <div class="note">🌸 櫻花季(4月)最美</div>
+            <span class="time">16:00</span>
+            <span class="location">奈良町散策</span>
+            <div class="note">🏘️ 古色古香老街</div>
           </div>
           <div class="timeline-item">
-            <span class="time">17:15</span>
-            <span class="location">下鴨神社</span>
-            <span class="tag tag-free">免費</span>
-            <div class="note">🌳 糺之森,世界遺產</div>
+            <span class="time">17:30</span>
+            <span class="location">返回京都</span>
+            <span class="transport">🚃 近鐵奈良→京都</span>
+            <span class="cost">¥640</span>
           </div>
           <div class="timeline-item">
-            <span class="time">18:15</span>
-            <span class="location">河原町逛街</span>
-            <div class="note">🛍️ 高島屋、丸井百貨</div>
+            <span class="time">19:00</span>
+            <span class="location">晚餐</span>
+            <span class="tag tag-food">¥2,000</span>
           </div>
         </div>
+        
+        <div class="restaurant-box">
+          <h5>🍜 今日餐廳推薦</h5>
+          
+          <p><strong>🍱 午餐: 志津香 釜飯</strong></p>
+          <p>💰 預算: ¥1,500-2,000</p>
+          <p>📍 地址: 奈良市登大路町59-11</p>
+          <p>⭐ 推薦: 七種釜飯 ¥1,680</p>
+          <p>📝 特色: 奈良必吃釜飯,現場炊煮,需等待30分鐘</p>
+          <p>⚠️ 常需排隊1-2小時,建議11:30前抵達</p>
+          
+          <p style="margin-top: 10px;"><strong>替代選項: 麵鬪庵 (烏龍麵)</strong></p>
+          <p>💰 預算: ¥1,000</p>
+          <p>📍 地址: 奈良市春日野町16</p>
+          <p>⭐ 推薦: 鍋燒烏龍麵 ¥950</p>
+          
+          <p style="margin-top: 15px;"><strong>🍜 晚餐: 京都拉麵或居酒屋</strong></p>
+          <p><strong>選項1: 天天有 拉麵</strong></p>
+          <p>💰 預算: ¥1,200</p>
+          <p>📍 地址: 京都市北区等持院南町</p>
+          <p>⭐ 推薦: 背脂拉麵 ¥900</p>
+          
+          <p style="margin-top: 10px;"><strong>選項2: 鳥貴族 (居酒屋)</strong></p>
+          <p>💰 預算: ¥2,000</p>
+          <p>📍 地址: 京都市內多家分店</p>
+          <p>⭐ 推薦: 全品項均一價 ¥360/串</p>
+          <p>📝 特色: 平價串燒,啤酒暢飲</p>
+        </div>
+        
         <div class="warning-box">
-          <h4>⚠️ 今日必買</h4>
-          <p><span class="highlight">京都巴士一日券 ¥700</span> - 今天會搭5-6次巴士,超划算!</p>
+          <h4>🦌 奈良餵鹿注意事項</h4>
+          <ul>
+            <li>🦌 鹿會主動靠近,有時會咬衣服或包包</li>
+            <li>🦌 鹿仙貝買了要快點餵完,不然會被包圍</li>
+            <li>🦌 餵完舉起雙手示意沒有了,鹿就會離開</li>
+            <li>🦌 不要逗弄或追趕鹿</li>
+            <li>🦌 小心鹿的糞便</li>
+            <li>📸 拍照時注意鹿會突然靠近</li>
+          </ul>
         </div>
       </div>
       
+      <!-- Day 5 -->
       <div class="day-card">
         <div class="day-header">
-          <div class="day-title">Day 7</div>
-          <div class="day-date">2026/01/23 (四) - 清水寺 + 祇園 → 大阪</div>
+          <div class="day-title">Day 5</div>
+          <div class="day-date">2026/01/21 (三) - 嵐山一日遊</div>
         </div>
-        <div class="accommodation">🏨 住宿: 大阪北新地RISE飯店</div>
+        <div class="accommodation">🏨 住宿: 京都二條Urban飯店Premier</div>
+        
         <div class="timeline">
           <div class="timeline-item">
             <span class="time">08:00</span>
-            <span class="location">飯店 Check-out</span>
-            <div class="note">💼 京都站寄放行李</div>
+            <span class="location">飯店早餐</span>
+            <div class="note">🥐 飯店免費早餐</div>
           </div>
           <div class="timeline-item">
-            <span class="time">09:45</span>
-            <span class="location">二年坂、三年坂</span>
+            <span class="time">09:30</span>
+            <span class="location">嵐山竹林小徑</span>
             <span class="tag tag-free">免費</span>
-            <div class="note">🏘️ 古街散策,和服體驗(選)</div>
+            <div class="note">🎋 早上人少,拍照最佳時機</div>
           </div>
           <div class="timeline-item">
-            <span class="time">10:45</span>
-            <span class="location">清水寺</span>
-            <span class="tag tag-ticket">¥400</span>
-            <div class="note">🏯 清水舞台,音羽瀑布</div>
+            <span class="time">10:30</span>
+            <span class="location">天龍寺</span>
+            <span class="tag tag-ticket">¥500</span>
+            <div class="note">🏯 世界遺產,庭園超美</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">12:00</span>
+            <span class="location">午餐</span>
+            <span class="tag tag-food">¥2,000</span>
+          </div>
+          <div class="timeline-item">
+            <span class="time">13:30</span>
+            <span class="location">嵐山小火車 (選購)</span>
+            <span class="tag tag-ticket">¥880</span>
+            <div class="note">🚂 トロッコ列車,需提前預約</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">15:00</span>
+            <span class="location">渡月橋</span>
+            <span class="tag tag-free">免費</span>
+            <div class="note">🌉 嵐山地標</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">16:00</span>
+            <span class="location">嵐山商店街</span>
+            <div class="note">🛍️ 購買伴手禮</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">18:00</span>
+            <span class="location">返回市區</span>
+          </div>
+          <div class="timeline-item">
+            <span class="time">19:00</span>
+            <span class="location">晚餐</span>
+            <span class="tag tag-food">¥2,500</span>
+          </div>
+        </div>
+        
+        <div class="restaurant-box">
+          <h5>🍜 今日餐廳推薦</h5>
+          
+          <p><strong>🍱 午餐: 嵯峨とうふ 稲 (豆腐料理)</strong></p>
+          <p>💰 預算: ¥2,000-3,000</p>
+          <p>📍 地址: 京都市右京区嵯峨天龍寺造路町19</p>
+          <p>⭐ 推薦: 湯豆腐套餐 ¥2,200</p>
+          <p>📝 特色: 嵐山必吃豆腐料理,庭園景觀</p>
+          
+          <p style="margin-top: 10px;"><strong>替代選項: よしむら (蕎麥麵)</strong></p>
+          <p>💰 預算: ¥1,500</p>
+          <p>📍 地址: 嵐山渡月橋旁</p>
+          <p>⭐ 推薦: 手打蕎麥麵 ¥1,200</p>
+          <p>📝 特色: 二樓可看渡月橋景色</p>
+          
+          <p style="margin-top: 15px;"><strong>🥩 晚餐: 弘 燒肉 (先斗町)</strong></p>
+          <p>💰 預算: ¥3,000-4,000</p>
+          <p>📍 地址: 京都市中京区先斗町通</p>
+          <p>⭐ 推薦: 和牛套餐 ¥3,500</p>
+          
+          <p style="margin-top: 10px;"><strong>替代選項: 京都勝牛</strong></p>
+          <p>💰 預算: ¥2,000</p>
+          <p>⭐ 推薦: 炸牛排定食 ¥1,780</p>
+        </div>
+        
+        <div class="tip-box">
+          <h4>🎋 嵐山遊玩建議</h4>
+          <ul>
+            <li>🌅 竹林早上7-9點人最少,拍照最美</li>
+            <li>🚂 小火車需提前1個月官網預約</li>
+            <li>🍡 嵐山商店街必買: 抹茶冰淇淋、竹炭冰淇淋</li>
+            <li>🎎 可租和服遊嵐山 (¥3,000-5,000/天)</li>
+            <li>🚇 交通: 搭嵐電或JR到嵐山站</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Day 6 -->
+      <div class="day-card">
+        <div class="day-header">
+          <div class="day-title">Day 6</div>
+          <div class="day-date">2026/01/22 (四) - 京都北部 (金閣寺、銀閣寺)</div>
+        </div>
+        <div class="accommodation">🏨 住宿: 京都二條Urban飯店Premier</div>
+        
+        <div class="warning-box">
+          <h4>💡 今日必買</h4>
+          <p><span class="highlight">京都巴士一日券 ¥700</span></p>
+          <p>可無限搭乘市巴士,今天會搭很多次,超划算!</p>
+        </div>
+        
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="time">08:00</span>
+            <span class="location">飯店早餐</span>
+            <div class="note">🥐 飯店免費早餐</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">09:30</span>
+            <span class="location">金閣寺</span>
+            <span class="tag tag-ticket">¥500</span>
+            <div class="note">✨ 金光閃閃的世界遺產</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">11:00</span>
+            <span class="location">龍安寺</span>
+            <span class="tag tag-ticket">¥500</span>
+            <div class="note">🪨 枯山水石庭</div>
           </div>
           <div class="timeline-item">
             <span class="time">12:30</span>
@@ -828,360 +1077,641 @@
             <span class="tag tag-food">¥1,500</span>
           </div>
           <div class="timeline-item">
-            <span class="time">13:45</span>
+            <span class="time">14:00</span>
+            <span class="location">銀閣寺</span>
+            <span class="tag tag-ticket">¥500</span>
+            <div class="note">🏯 侘寂美學代表</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">15:30</span>
+            <span class="location">哲學之道</span>
+            <span class="tag tag-free">免費</span>
+            <div class="note">🌸 春天櫻花超美 (冬天較蕭瑟)</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">16:30</span>
+            <span class="location">下鴨神社</span>
+            <span class="tag tag-free">免費</span>
+            <div class="note">⛩️ 世界遺產</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">18:30</span>
+            <span class="location">晚餐</span>
+            <span class="tag tag-food">¥2,500</span>
+          </div>
+        </div>
+        
+        <div class="restaurant-box">
+          <h5>🍜 今日餐廳推薦</h5>
+          
+          <p><strong>🍱 午餐: わら屋 (金閣寺附近)</strong></p>
+          <p>💰 預算: ¥1,500</p>
+          <p>📍 地址: 金閣寺周邊</p>
+          <p>⭐ 推薦: 親子丼 ¥1,280</p>
+          
+          <p style="margin-top: 10px;"><strong>替代選項: 便利商店或超市便當</strong></p>
+          <p>💰 預算: ¥600-800</p>
+          <p>📝 特色: 省錢又方便</p>
+          
+          <p style="margin-top: 15px;"><strong>🍜 晚餐: 京都車站拉麵小路</strong></p>
+          <p>💰 預算: ¥1,200</p>
+          <p>📍 地址: 京都站伊勢丹10樓</p>
+          <p>⭐ 推薦: 集合8家知名拉麵店</p>
+          <p>📝 特色: 一次吃遍各地拉麵</p>
+          
+          <p style="margin-top: 10px;"><strong>替代選項: 京都塔地下美食街</strong></p>
+          <p>💰 預算: ¥1,500-2,000</p>
+          <p>⭐ 推薦: 多種選擇 (拉麵、定食、串燒)</p>
+        </div>
+        
+        <div class="tip-box">
+          <h4>🚌 巴士路線建議</h4>
+          <ul>
+            <li>🚌 飯店 → 金閣寺: 巴士101、205</li>
+            <li>🚌 金閣寺 → 龍安寺: 巴士59</li>
+            <li>🚌 龍安寺 → 銀閣寺: 巴士轉乘</li>
+            <li>🚌 銀閣寺 → 下鴨神社: 巴士203、102</li>
+            <li>💡 使用Google Maps查詢最新路線</li>
+            <li>💡 巴士一日券搭3次就回本 (單程¥230)</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Day 7 -->
+      <div class="day-card">
+        <div class="day-header">
+          <div class="day-title">Day 7</div>
+          <div class="day-date">2026/01/23 (五) - 清水寺 + 祇園 → 大阪</div>
+        </div>
+        <div class="accommodation">🏨 住宿: 大阪北新地RISE飯店</div>
+        
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="time">07:00</span>
+            <span class="location">飯店早餐 + Check-out</span>
+            <div class="note">🧳 行李寄放飯店</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">08:30</span>
+            <span class="location">清水寺</span>
+            <span class="tag tag-ticket">¥400</span>
+            <div class="note">🏯 京都必訪,早上人少</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">10:00</span>
+            <span class="location">地主神社</span>
+            <span class="tag tag-free">免費</span>
+            <div class="note">💕 戀愛神社,戀愛石</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">10:30</span>
+            <span class="location">三年坂、二年坂</span>
+            <span class="tag tag-free">免費</span>
+            <div class="note">📸 超好拍古街道</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">12:00</span>
+            <span class="location">午餐</span>
+            <span class="tag tag-food">¥1,500</span>
+          </div>
+          <div class="timeline-item">
+            <span class="time">13:30</span>
             <span class="location">八坂神社</span>
             <span class="tag tag-free">免費</span>
+            <div class="note">⛩️ 朱紅色建築</div>
           </div>
           <div class="timeline-item">
             <span class="time">14:30</span>
             <span class="location">花見小路</span>
             <span class="tag tag-free">免費</span>
-            <div class="note">👘 祇園藝妓街</div>
+            <div class="note">🎎 祇園藝妓街</div>
           </div>
           <div class="timeline-item">
-            <span class="time">15:15</span>
+            <span class="time">15:30</span>
             <span class="location">建仁寺</span>
             <span class="tag tag-ticket">¥600</span>
-            <div class="note">🎨 風神雷神圖、雙龍圖</div>
+            <div class="note">🐉 風神雷神圖、雙龍圖</div>
           </div>
           <div class="timeline-item">
-            <span class="time">16:30</span>
-            <span class="location">河原町商店街購物</span>
+            <span class="time">17:00</span>
+            <span class="location">回飯店取行李</span>
           </div>
           <div class="timeline-item">
-            <span class="time">19:00</span>
+            <span class="time">18:00</span>
             <span class="location">前往大阪</span>
             <span class="transport">🚄 JR新快速</span>
             <span class="cost">¥570</span>
+            <div class="note">🚆 京都→大阪 約30分鐘</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">19:00</span>
+            <span class="location">大阪北新地RISE飯店 Check-in</span>
           </div>
           <div class="timeline-item">
             <span class="time">20:00</span>
-            <span class="location">大阪飯店 Check-in</span>
+            <span class="location">晚餐 + 道頓堀夜景</span>
+            <span class="tag tag-food">¥2,000</span>
           </div>
         </div>
+        
+        <div class="restaurant-box">
+          <h5>🍜 今日餐廳推薦</h5>
+          
+          <p><strong>🍱 午餐: 順正 湯豆腐 (清水寺附近)</strong></p>
+          <p>💰 預算: ¥2,000</p>
+          <p>📍 地址: 京都市東山区清水2-239</p>
+          <p>⭐ 推薦: 湯豆腐套餐 ¥1,980</p>
+          <p>📝 特色: 京都傳統料理,庭園景觀</p>
+          
+          <p style="margin-top: 10px;"><strong>替代選項: 親子丼 ひさご (二年坂)</strong></p>
+          <p>💰 預算: ¥1,200</p>
+          <p>📍 地址: 二年坂附近</p>
+          <p>⭐ 推薦: 親子丼 ¥1,100</p>
+          
+          <p style="margin-top: 15px;"><strong>🦀 晚餐: 道頓堀美食</strong></p>
+          <p><strong>選項1: かに道楽 (螃蟹料理)</strong></p>
+          <p>💰 預算: ¥3,000-5,000</p>
+          <p>📍 地址: 道頓堀1-6-18 (大螃蟹招牌)</p>
+          <p>⭐ 推薦: 螃蟹套餐 ¥3,500</p>
+          <p>📝 特色: 道頓堀地標,超大螃蟹招牌</p>
+          
+          <p style="margin-top: 10px;"><strong>選項2: 金龍拉麵</strong></p>
+          <p>💰 預算: ¥800</p>
+          <p>📍 地址: 道頓堀多家分店</p>
+          <p>⭐ 推薦: 豚骨拉麵 ¥650</p>
+          <p>📝 特色: 24小時營業,平價美味</p>
+          
+          <p style="margin-top: 10px;"><strong>選項3: 大阪王將 (煎餃)</strong></p>
+          <p>💰 預算: ¥1,200</p>
+          <p>⭐ 推薦: 煎餃 ¥280、炒飯 ¥580</p>
+        </div>
+        
         <div class="tip-box">
-          <h4>💡 行李處理方案</h4>
+          <h4>📸 清水寺拍照建議</h4>
           <ul>
-            <li>方案A: 京都站置物櫃 ¥500-700</li>
-            <li>方案B: 宅急便寄到大阪飯店 ¥1,500</li>
+            <li>📸 清水舞台: 從音羽瀑布方向仰拍</li>
+            <li>📸 三年坂、二年坂: 石板路超好拍</li>
+            <li>📸 穿和服拍照更有感覺 (租借¥3,000-5,000)</li>
+            <li>⏰ 早上8點前人最少</li>
+            <li>🚫 注意「撮影禁止」標示</li>
           </ul>
         </div>
       </div>
       
+      <!-- Day 8 -->
       <div class="day-card">
         <div class="day-header">
           <div class="day-title">Day 8</div>
-          <div class="day-date">2026/01/24 (五) - 環球影城</div>
+          <div class="day-date">2026/01/24 (六) - 環球影城</div>
         </div>
         <div class="accommodation">🏨 住宿: 大阪北新地RISE飯店</div>
+        
+        <div class="warning-box">
+          <h4>🎢 環球影城必備</h4>
+          <ul>
+            <li>🎫 門票: ¥8,900 (提前官網或Klook購買)</li>
+            <li>⚡ 快速通關4: ¥7,800-14,800 (強烈建議購買)</li>
+            <li>📱 下載環球影城官方APP (查等候時間)</li>
+            <li>💧 自備水壺、零食 (園內很貴)</li>
+            <li>🔋 充飽行動電源</li>
+            <li>👟 穿舒適的鞋子</li>
+          </ul>
+        </div>
+        
+        <div class="usj-schedule">
+          <h5>🎢 環球影城遊玩攻略 (有快速通關)</h5>
+          <p><strong>策略:</strong> 開園衝超級任天堂世界 → 用快速通關玩其他設施</p>
+        </div>
+        
         <div class="timeline">
           <div class="timeline-item">
-            <span class="time">07:00</span>
+            <span class="time">07:30</span>
             <span class="location">飯店出發</span>
             <div class="note">🥐 便利商店買早餐</div>
           </div>
           <div class="timeline-item">
-            <span class="time">08:00</span>
-            <span class="location">環球影城開園前抵達</span>
+            <span class="time">08:15</span>
+            <span class="location">抵達環球影城</span>
+            <span class="transport">🚇 JR夢咲線</span>
+            <span class="cost">¥180</span>
+            <div class="note">⏰ 開園前30分鐘抵達排隊</div>
           </div>
           <div class="timeline-item">
             <span class="time">08:30</span>
-            <span class="location">入園</span>
-            <span class="tag tag-ticket">門票¥8,900</span>
+            <span class="location">開園入場</span>
+            <div class="note">🎫 提前準備好QR Code</div>
           </div>
           <div class="timeline-item">
-            <span class="time">08:30-20:30</span>
-            <span class="location">暢玩環球影城</span>
-            <div class="note">
-              <strong>必玩設施:</strong><br>
-              ⭐⭐⭐ 哈利波特禁忌之旅<br>
-              ⭐⭐⭐ 瑪利歐賽車 (需抽整理券)<br>
-              ⭐⭐⭐ 飛天翼龍<br>
-              ⭐⭐ 小小兵乘車遊<br>
-              ⭐⭐ 蜘蛛人驚魂歷險記
-            </div>
+            <span class="time">08:35</span>
+            <span class="location">衝超級任天堂世界</span>
+            <div class="note">🍄 開園立刻衝,抽整理券或排隊入場</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">09:00</span>
+            <span class="location">瑪利歐賽車 ~庫巴的挑戰書~</span>
+            <span class="tag tag-ticket">快速通關</span>
+            <div class="note">🏎️ 必玩!AR互動賽車</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">10:00</span>
+            <span class="location">耀西冒險</span>
+            <div class="note">🦕 輕鬆可愛的軌道車</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">10:45</span>
+            <span class="location">瑪利歐世界拍照</span>
+            <div class="note">📸 蘑菇王國、水管、金幣</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">11:30</span>
+            <span class="location">哈利波特禁忌之旅</span>
+            <span class="tag tag-ticket">快速通關</span>
+            <div class="note">🏰 必玩!4K3D飛行體驗</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">12:30</span>
+            <span class="location">午餐 + 霍格華茲城堡拍照</span>
+            <span class="tag tag-food">¥1,500</span>
+            <div class="note">🍺 三根掃帚酒吧、奶油啤酒</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">14:00</span>
+            <span class="location">飛天翼龍</span>
+            <span class="tag tag-ticket">快速通關</span>
+            <div class="note">🦖 超刺激!趴著飛的雲霄飛車</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">15:00</span>
+            <span class="location">小小兵瘋狂乘車遊</span>
+            <span class="tag tag-ticket">快速通關</span>
+            <div class="note">😄 3D互動遊樂設施</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">16:00</span>
+            <span class="location">小小兵樂園拍照 + 購物</span>
+            <div class="note">🛍️ 小小兵爆米花桶</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">17:00</span>
+            <span class="location">蜘蛛俠驚魂歷險記 (排隊)</span>
+            <div class="note">🕷️ 4K3D,超好玩</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">18:00</span>
+            <span class="location">晚餐</span>
+            <span class="tag tag-food">¥1,500</span>
+          </div>
+          <div class="timeline-item">
+            <span class="time">19:00</span>
+            <span class="location">環球奇境 (如有時間)</span>
+            <div class="note">🎠 史努比、Hello Kitty</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">20:00</span>
+            <span class="location">夜間遊行 + 煙火</span>
+            <div class="note">🎆 季節限定表演</div>
           </div>
           <div class="timeline-item">
             <span class="time">21:00</span>
-            <span class="location">返回飯店</span>
+            <span class="location">離開環球影城</span>
           </div>
         </div>
-        <div class="warning-box">
-          <h4>⚠️ 環球影城攻略</h4>
+        
+        <div class="restaurant-box">
+          <h5>🍜 環球影城餐飲建議</h5>
+          
+          <p><strong>🍺 午餐: 三根掃帚酒吧 (哈利波特園區)</strong></p>
+          <p>💰 預算: ¥1,500-2,000</p>
+          <p>⭐ 推薦: 烤雞套餐 ¥1,680、奶油啤酒 ¥700</p>
+          <p>📝 特色: 必喝奶油啤酒!</p>
+          
+          <p style="margin-top: 10px;"><strong>🍕 晚餐: 園內餐廳</strong></p>
+          <p>💰 預算: ¥1,500</p>
+          <p>⭐ 推薦: 披薩、漢堡、炸雞</p>
+          
+          <p style="margin-top: 10px;"><strong>💡 省錢建議:</strong></p>
+          <p>🥪 自備三明治、飯糰 (可帶入園)</p>
+          <p>💧 自備水壺 (園內可裝水)</p>
+          <p>🍿 爆米花桶 ¥3,200 (可續杯 ¥500)</p>
+        </div>
+        
+        <div class="tip-box">
+          <h4>🎢 環球影城攻略重點</h4>
           <ul>
-            <li>🎫 <span class="highlight">提前購票</span> (官網或Klook)</li>
-            <li>⚡ <span class="highlight">建議購買快速通關4</span> ¥7,800-14,800</li>
-            <li>📱 下載官方APP查看等候時間</li>
-            <li>🏃 開園直衝哈利波特區</li>
-            <li>🎯 瑪利歐世界需抽整理券</li>
-            <li>🔋 帶行動電源</li>
+            <li>⚡ <strong>快速通關4推薦:</strong> 瑪利歐賽車 + 哈利波特 + 飛天翼龍 + 小小兵</li>
+            <li>🍄 <strong>瑪利歐世界:</strong> 開園衝第一個,或抽整理券</li>
+            <li>🏰 <strong>哈利波特:</strong> 用快速通關,否則排2-3小時</li>
+            <li>🦖 <strong>飛天翼龍:</strong> 超刺激,有快速通關必玩</li>
+            <li>📱 <strong>官方APP:</strong> 即時查看等候時間</li>
+            <li>🎫 <strong>單人通道:</strong> 部分設施有單人快速通道</li>
+            <li>📸 <strong>拍照時機:</strong> 早上、傍晚人較少</li>
+            <li>🛍️ <strong>紀念品:</strong> 晚上再買,不用提著逛</li>
+          </ul>
+        </div>
+        
+        <div class="warning-box">
+          <h4>⚠️ 環球影城注意事項</h4>
+          <ul>
+            <li>🎫 門票、快速通關提前1個月購買</li>
+            <li>📱 門票存手機,截圖備份</li>
+            <li>🔋 行動電源必備 (APP很耗電)</li>
+            <li>👟 穿好走的鞋 (會走1-2萬步)</li>
+            <li>🧥 帶外套 (室內冷氣強)</li>
+            <li>💰 園內消費貴,能自備就自備</li>
+            <li>🚫 大型行李不可入園 (有寄物櫃)</li>
+            <li>⏰ 週末、假日人超多,建議平日去</li>
           </ul>
         </div>
       </div>
       
+      <!-- Day 9 -->
       <div class="day-card">
         <div class="day-header">
           <div class="day-title">Day 9</div>
-          <div class="day-date">2026/01/25 (六) - 大阪市區 + 返台</div>
+          <div class="day-date">2026/01/25 (日) - 大阪市區 + 返台</div>
         </div>
-        <div class="accommodation">🏨 住宿: 大阪北新地RISE飯店 (Check-out)</div>
+        
+        <div class="flight-info">
+          <h5>✈️ Jetstar Japan GK51</h5>
+          <p>大阪關西機場 (KIX) 23:10 → 桃園機場 (TPE) 01:30+1</p>
+          <p>飛行時間: 約2小時20分鐘</p>
+        </div>
+        
         <div class="timeline">
           <div class="timeline-item">
-            <span class="time">08:30</span>
-            <span class="location">大阪城公園</span>
-            <span class="tag tag-free">周遊卡免費</span>
-            <div class="note">🏯 天守閣展望台</div>
+            <span class="time">08:00</span>
+            <span class="location">飯店早餐 + Check-out</span>
+            <div class="note">🧳 行李寄放飯店</div>
           </div>
           <div class="timeline-item">
-            <span class="time">11:30</span>
-            <span class="location">黑門市場</span>
-            <span class="tag tag-food">午餐¥2,000</span>
-            <div class="note">🍣 海鮮丼、神戶牛串</div>
+            <span class="time">09:30</span>
+            <span class="location">大阪城</span>
+            <span class="tag tag-ticket">¥600</span>
+            <div class="note">🏯 大阪地標</div>
           </div>
           <div class="timeline-item">
-            <span class="time">13:00</span>
+            <span class="time">12:00</span>
+            <span class="location">午餐</span>
+            <span class="tag tag-food">¥1,500</span>
+          </div>
+          <div class="timeline-item">
+            <span class="time">13:30</span>
+            <span class="location">心齋橋 + 道頓堀購物</span>
+            <div class="note">🛍️ 最後採購藥妝、伴手禮</div>
+          </div>
+          <div class="timeline-item">
+            <span class="time">16:00</span>
             <span class="location">難波八阪神社</span>
             <span class="tag tag-free">免費</span>
             <div class="note">🦁 巨大獅子頭</div>
           </div>
           <div class="timeline-item">
-            <span class="time">13:45</span>
-            <span class="location">道頓堀</span>
-            <span class="tag tag-free">免費</span>
-            <div class="note">📸 固力果跑跑人、大螃蟹</div>
-          </div>
-          <div class="timeline-item">
-            <span class="time">14:45</span>
-            <span class="location">心齋橋筋商店街</span>
-            <div class="note">🛍️ 藥妝、服飾、雜貨</div>
-          </div>
-          <div class="timeline-item">
-            <span class="time">16:30</span>
-            <span class="location">通天閣</span>
-            <span class="tag tag-free">周遊卡免費</span>
-          </div>
-          <div class="timeline-item">
             <span class="time">17:00</span>
-            <span class="location">新世界 串炸</span>
-            <span class="tag tag-food">¥1,500</span>
+            <span class="location">Harukas 300展望台 (選購)</span>
+            <span class="tag tag-ticket">¥1,500</span>
+            <div class="note">🌆 大阪夜景</div>
           </div>
           <div class="timeline-item">
             <span class="time">18:30</span>
-            <span class="location">Harukas 300展望台</span>
-            <span class="tag tag-free">周遊卡免費</span>
-            <div class="note">🌃 看大阪夜景</div>
+            <span class="location">回飯店取行李</span>
+          </div>
+          <div class="timeline-item">
+            <span class="time">19:00</span>
+            <span class="location">晚餐</span>
+            <span class="tag tag-food">¥2,000</span>
           </div>
           <div class="timeline-item">
             <span class="time">20:30</span>
-            <span class="location">返回飯店取行李</span>
-          </div>
-        </div>
-        <div class="warning-box">
-          <h4>⚠️ 今日必買</h4>
-          <p><span class="highlight">大阪周遊卡1日券 ¥2,800</span> - 包含地鐵無限搭乘+40個景點免費!</p>
-        </div>
-      </div>
-      
-      <div class="day-card">
-        <div class="day-header">
-          <div class="day-title">Day 10</div>
-          <div class="day-date">2026/01/26 (日) - 返台日</div>
-        </div>
-        <div class="timeline">
-          <div class="timeline-item">
-            <span class="time">08:00</span>
-            <span class="location">飯店 Check-out</span>
-          </div>
-          <div class="timeline-item">
-            <span class="time">08:30</span>
-            <span class="location">梅田購物</span>
-            <div class="note">🛍️ 阪急百貨、LUCUA、Grand Front</div>
-          </div>
-          <div class="timeline-item">
-            <span class="time">12:30</span>
             <span class="location">前往關西機場</span>
-            <span class="transport">🚃 南海電鐵</span>
-            <span class="cost">¥1,210</span>
+            <span class="transport">🚄 南海電鐵特急</span>
+            <span class="cost">¥930</span>
+            <div class="note">🚆 車程約40分鐘</div>
           </div>
           <div class="timeline-item">
-            <span class="time">13:30</span>
-            <span class="location">關西機場</span>
-            <div class="note">💴 退稅、購物、覓食</div>
+            <span class="time">21:30</span>
+            <span class="location">關西機場 Check-in</span>
+            <div class="note">⏰ 提前1.5小時到機場</div>
           </div>
           <div class="timeline-item">
-            <span class="time">17:00</span>
-            <span class="location">Check-in</span>
+            <span class="time">23:10</span>
+            <span class="location">關西機場起飛</span>
+            <span class="transport">✈️ Jetstar GK51</span>
           </div>
           <div class="timeline-item">
-            <span class="time">20:10</span>
-            <span class="location">起飛返台</span>
+            <span class="time">01:30</span>
+            <span class="location">抵達桃園機場</span>
+            <div class="note">🏠 回到溫暖的家!</div>
           </div>
+        </div>
+        
+        <div class="restaurant-box">
+          <h5>🍜 今日餐廳推薦</h5>
+          
+          <p><strong>🍱 午餐: 大阪城周邊</strong></p>
+          <p><strong>選項1: 便利商店便當</strong></p>
+          <p>💰 預算: ¥600-800</p>
+          <p>📝 特色: 省錢方便</p>
+          
+          <p style="margin-top: 10px;"><strong>選項2: 松屋、吉野家 (連鎖)</strong></p>
+          <p>💰 預算: ¥700</p>
+          <p>⭐ 推薦: 牛丼 ¥680</p>
+          
+          <p style="margin-top: 15px;"><strong>🥟 晚餐: 551蓬萊 豬肉包 (機場前)</strong></p>
+          <p>💰 預算: ¥1,000</p>
+          <p>📍 地址: 難波站、關西機場都有</p>
+          <p>⭐ 推薦: 豬肉包 ¥220/個、炒飯 ¥680</p>
+          <p>📝 特色: 大阪必吃,可買冷凍包回台灣</p>
+          
+          <p style="margin-top: 10px;"><strong>替代選項: 機場美食街</strong></p>
+          <p>💰 預算: ¥1,500</p>
+          <p>⭐ 推薦: 拉麵、定食、壽司</p>
+        </div>
+        
+        <div class="warning-box">
+          <h4>🛍️ 最後採購清單</h4>
+          <ul>
+            <li>💊 藥妝: 休足時間、合利他命、龍角散、EVE</li>
+            <li>🍫 零食: 薯條三兄弟、固力果、白色戀人</li>
+            <li>🥟 551蓬萊豬肉包 (冷凍)</li>
+            <li>🍰 Rikuro老爺爺起司蛋糕</li>
+            <li>🍵 抹茶相關產品</li>
+            <li>🎁 其他伴手禮</li>
+          </ul>
+          
+          <h4 style="margin-top: 15px;">✈️ 返程注意事項</h4>
+          <ul>
+            <li>🧳 確認行李重量 (Jetstar很嚴格)</li>
+            <li>🔋 行動電源只能手提</li>
+            <li>💧 液體不可超過100ml (手提)</li>
+            <li>⏰ 提前1.5小時到機場</li>
+            <li>💴 用完日幣現金 (或留下次用)</li>
+            <li>🎫 ICOCA卡可留著下次用</li>
+          </ul>
         </div>
       </div>
     </section>
-    
     <section id="accommodation">
       <h2>🏨 住宿資訊</h2>
       
       <div class="day-card">
-        <h3>Night 1 (1/17) - 櫻花台酒店</h3>
-        <p><strong>日文名:</strong> サクラテラス ザ・ギャラリー</p>
-        <p><strong>地址:</strong> 京都市南区東九条北烏丸町1-1</p>
-        <p><strong>位置:</strong> 京都站八條口步行3分鐘</p>
-        <p><strong>房價:</strong> 約¥6,000-8,000/晚</p>
+        <h3>🏨 櫻花台酒店 (Sakura Terrace)</h3>
+        <p><strong>入住日期:</strong> 2026/01/17 (六) - 1晚</p>
+        <p><strong>地址:</strong> 京都市南区東九条烏丸町1-1</p>
+        <p><strong>價格:</strong> 約 NT$2,500/晚</p>
+        <p><strong>特色:</strong></p>
+        <ul>
+          <li>✅ 京都站步行5分鐘</li>
+          <li>✅ 交通超便利,適合第一晚</li>
+          <li>✅ 有大浴場</li>
+          <li>✅ 提供免費早餐</li>
+          <li>✅ 24小時櫃檯 (深夜抵達OK)</li>
+        </ul>
+        <p><strong>Check-in:</strong> 15:00 | <strong>Check-out:</strong> 11:00</p>
+        <div class="note">📝 已告知深夜抵達 (約00:30)</div>
+      </div>
+      
+      <div class="day-card">
+        <h3>🏨 京都二條Urban飯店Premier</h3>
+        <p><strong>入住日期:</strong> 2026/01/18 (日) - 2026/01/23 (五) - 5晚</p>
+        <p><strong>地址:</strong> 京都市中京区西ノ京北壺井町67</p>
+        <p><strong>價格:</strong> 約 NT$3,000/晚 × 5晚 = NT$15,000</p>
+        <p><strong>特色:</strong></p>
+        <ul>
+          <li>✅ 二條城前站步行2分鐘</li>
+          <li>✅ 地鐵、JR都方便</li>
+          <li>✅ 房間寬敞舒適</li>
+          <li>✅ 提供免費早餐</li>
+          <li>✅ 有大浴場</li>
+          <li>✅ 周邊有超市、便利商店</li>
+        </ul>
+        <p><strong>Check-in:</strong> 15:00 | <strong>Check-out:</strong> 11:00</p>
         <div class="tip-box">
-          <h4>✨ 優點</h4>
-          <ul>
-            <li>✅ 離京都站超近,適合深夜抵達</li>
-            <li>✅ 有大浴場</li>
-            <li>✅ 房間乾淨舒適</li>
-          </ul>
+          <h4>📍 交通位置</h4>
+          <p>🚇 地鐵東西線「二條城前站」2號出口步行2分鐘</p>
+          <p>🚆 JR「二條站」步行8分鐘</p>
+          <p>💡 到京都站約15分鐘,到四條河原町約10分鐘</p>
         </div>
       </div>
       
       <div class="day-card">
-        <h3>Night 2-6 (1/18-1/22) - 京都二條Urban飯店Premier</h3>
-        <p><strong>日文名:</strong> ホテルインターゲート京都四条新町</p>
-        <p><strong>地址:</strong> 京都市下京区四条通新町東入ル月鉾町52</p>
-        <p><strong>位置:</strong> 地鐵四條站步行5分鐘</p>
-        <p><strong>房價:</strong> 約¥8,000-10,000/晚 x 5晚 = ¥40,000-50,000</p>
+        <h3>🏨 大阪北新地RISE飯店</h3>
+        <p><strong>入住日期:</strong> 2026/01/23 (五) - 2026/01/25 (日) - 2晚</p>
+        <p><strong>地址:</strong> 大阪市北区曽根崎新地2-2-16</p>
+        <p><strong>價格:</strong> 約 NT$3,500/晚 × 2晚 = NT$7,000</p>
+        <p><strong>特色:</strong></p>
+        <ul>
+          <li>✅ 北新地站步行3分鐘</li>
+          <li>✅ 梅田商圈,購物方便</li>
+          <li>✅ 到環球影城約30分鐘</li>
+          <li>✅ 房間新穎乾淨</li>
+          <li>✅ 周邊餐廳多</li>
+        </ul>
+        <p><strong>Check-in:</strong> 15:00 | <strong>Check-out:</strong> 11:00</p>
         <div class="tip-box">
-          <h4>✨ 優點</h4>
-          <ul>
-            <li>✅ 位置絕佳 (四條河原町商圈)</li>
-            <li>✅ 免費早餐</li>
-            <li>✅ 免費宵夜拉麵 (21:30-23:00)</li>
-            <li>✅ 免費迎賓飲料</li>
-            <li>✅ 房間新穎</li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="day-card">
-        <h3>Night 7-8 (1/23-1/24) - 大阪北新地RISE飯店</h3>
-        <p><strong>日文名:</strong> ホテルライズ大阪北新地</p>
-        <p><strong>地址:</strong> 大阪市北区曽根崎新地1-4-13</p>
-        <p><strong>位置:</strong> JR大阪站步行8分鐘,北新地站步行3分鐘</p>
-        <p><strong>房價:</strong> 約¥7,000-9,000/晚 x 2晚 = ¥14,000-18,000</p>
-        <div class="tip-box">
-          <h4>✨ 優點</h4>
-          <ul>
-            <li>✅ 交通方便 (去環球影城、梅田都方便)</li>
-            <li>✅ 房間較新</li>
-            <li>✅ 周邊餐廳多</li>
-          </ul>
+          <h4>📍 交通位置</h4>
+          <p>🚇 地鐵四橋線「西梅田站」步行5分鐘</p>
+          <p>🚇 JR「北新地站」步行3分鐘</p>
+          <p>🚇 JR「大阪站」步行10分鐘</p>
+          <p>💡 到環球影城: JR夢咲線約30分鐘</p>
+          <p>💡 到關西機場: 南海電鐵約40分鐘</p>
         </div>
       </div>
       
       <div class="warning-box">
-        <h4>💰 住宿總費用</h4>
-        <p style="font-size: 1.2em;"><strong>¥67,000-75,000 (約 NT$14,500-16,200)</strong></p>
+        <h4>🏨 住宿注意事項</h4>
+        <ul>
+          <li>📧 訂房確認信請列印或存手機</li>
+          <li>🆔 Check-in需出示護照</li>
+          <li>💳 可能需要信用卡擔保</li>
+          <li>🧳 大件行李可寄放櫃檯</li>
+          <li>⏰ 提早到可先寄放行李</li>
+          <li>🔌 日本電壓100V,台灣電器可直接使用</li>
+          <li>🚭 日本飯店多為禁菸房</li>
+        </ul>
       </div>
     </section>
     
     <section id="transport">
-      <h2>🚄 交通方案</h2>
+      <h2>🚇 交通方案</h2>
       
-      <h3>推薦方案: ICOCA + 巴士券 + 周遊卡</h3>
-      
-      <table class="budget-table">
-        <thead>
-          <tr>
-            <th>日期</th>
-            <th>交通工具</th>
-            <th>費用</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Day 1</td>
-            <td>ICOCA卡 (含儲值¥1,500)</td>
-            <td>¥2,000</td>
-          </tr>
-          <tr>
-            <td>Day 1</td>
-            <td>關西機場→京都站 (JR)</td>
-            <td>¥1,210</td>
-          </tr>
-          <tr>
-            <td>Day 2</td>
-            <td>地鐵+JR (ICOCA)</td>
-            <td>¥1,160</td>
-          </tr>
-          <tr>
-            <td>Day 3</td>
-            <td>JR+地鐵 (ICOCA)</td>
-            <td>¥520</td>
-          </tr>
-          <tr>
-            <td>Day 4</td>
-            <td>近鐵京都→奈良來回</td>
-            <td>¥1,280</td>
-          </tr>
-          <tr>
-            <td>Day 5</td>
-            <td>嵐電+小火車</td>
-            <td>¥1,340</td>
-          </tr>
-          <tr>
-            <td>Day 6</td>
-            <td><strong>京都巴士一日券</strong></td>
-            <td>¥700</td>
-          </tr>
-          <tr>
-            <td>Day 7</td>
-            <td>巴士+JR京都→大阪</td>
-            <td>¥1,270</td>
-          </tr>
-          <tr>
-            <td>Day 8</td>
-            <td>JR環球影城來回</td>
-            <td>¥360</td>
-          </tr>
-          <tr>
-            <td>Day 9</td>
-            <td><strong>大阪周遊卡1日券</strong></td>
-            <td>¥2,800</td>
-          </tr>
-          <tr>
-            <td>Day 10</td>
-            <td>大阪→關西機場 (南海電鐵)</td>
-            <td>¥1,210</td>
-          </tr>
-          <tr class="total-row">
-            <td colspan="2">總交通費</td>
-            <td>¥13,850</td>
-          </tr>
-        </tbody>
-      </table>
-      
-      <div class="tip-box">
-        <h4>💳 ICOCA 卡說明</h4>
+      <div class="day-card">
+        <h3>💳 ICOCA卡 (必買)</h3>
+        <p><strong>價格:</strong> ¥2,000 (含¥1,500可用金額 + ¥500押金)</p>
+        <p><strong>購買地點:</strong> 關西機場、京都站、大阪站</p>
+        <p><strong>用途:</strong></p>
         <ul>
-          <li>💴 售價¥2,000 (含押金¥500+儲值¥1,500)</li>
-          <li>✅ 可用於: JR、地鐵、私鐵、巴士、便利商店</li>
-          <li>🔄 可在關西機場、京都站、大阪站購買</li>
-          <li>💰 不夠隨時可加值</li>
+          <li>✅ 搭乘JR、地鐵、巴士</li>
+          <li>✅ 便利商店、自動販賣機</li>
+          <li>✅ 部分餐廳、商店</li>
+          <li>✅ 可儲值,餘額下次來日本可用</li>
+        </ul>
+        <div class="tip-box">
+          <h4>💡 使用技巧</h4>
+          <p>✅ 機場購買後立即儲值¥3,000-5,000</p>
+          <p>✅ 便利商店、車站都可儲值</p>
+          <p>✅ 餘額不足¥1,000時記得儲值</p>
+          <p>✅ 退卡會扣¥220手續費,建議留著下次用</p>
+        </div>
+      </div>
+      
+      <div class="day-card">
+        <h3>🚌 京都巴士一日券</h3>
+        <p><strong>價格:</strong> ¥700/張</p>
+        <p><strong>使用日:</strong> Day 6 (金閣寺、銀閣寺)</p>
+        <p><strong>購買地點:</strong> 京都站巴士案內所、便利商店</p>
+        <p><strong>使用範圍:</strong> 京都市巴士、京都巴士均一區間</p>
+        <div class="tip-box">
+          <h4>💡 划算分析</h4>
+          <p>🚌 單程巴士 ¥230</p>
+          <p>✅ 搭3次就回本 (¥230 × 3 = ¥690)</p>
+          <p>✅ Day 6 預計搭6-8次,超划算!</p>
+        </div>
+      </div>
+      
+      <div class="day-card">
+        <h3>🚄 主要交通路線</h3>
+        
+        <h4>關西機場 ↔ 京都</h4>
+        <ul>
+          <li><strong>JR關空快速:</strong> ¥1,210 (75分鐘) - 推薦</li>
+          <li><strong>JR特急はるか:</strong> ¥3,430 (75分鐘) - 較快但貴</li>
+          <li><strong>利木津巴士:</strong> ¥2,600 (90分鐘)</li>
+        </ul>
+        
+        <h4>京都 ↔ 大阪</h4>
+        <ul>
+          <li><strong>JR新快速:</strong> ¥570 (30分鐘) - 推薦</li>
+          <li><strong>阪急電鐵:</strong> ¥400 (45分鐘) - 較便宜</li>
+          <li><strong>京阪電車:</strong> ¥410 (50分鐘)</li>
+        </ul>
+        
+        <h4>京都 ↔ 奈良</h4>
+        <ul>
+          <li><strong>近鐵京都線:</strong> ¥640 (45分鐘) - 推薦</li>
+          <li><strong>JR奈良線:</strong> ¥720 (50分鐘)</li>
+        </ul>
+        
+        <h4>大阪 ↔ 環球影城</h4>
+        <ul>
+          <li><strong>JR夢咲線:</strong> ¥180 (15分鐘) - 從西九条轉乘</li>
+        </ul>
+        
+        <h4>大阪 ↔ 關西機場</h4>
+        <ul>
+          <li><strong>南海電鐵特急:</strong> ¥930 (40分鐘) - 推薦</li>
+          <li><strong>JR關空快速:</strong> ¥1,210 (65分鐘)</li>
         </ul>
       </div>
       
-      <div class="tip-box">
-        <h4>🎫 京都巴士一日券</h4>
+      <div class="warning-box">
+        <h4>🚇 交通注意事項</h4>
         <ul>
-          <li>💳 ¥700/張</li>
-          <li>✅ 京都市巴士、京都巴士無限搭乘</li>
-          <li>💡 搭3次就回本 (單程¥230)</li>
-          <li>📅 建議購買日: Day 6</li>
-        </ul>
-      </div>
-      
-      <div class="tip-box">
-        <h4>🎫 大阪周遊卡</h4>
-        <ul>
-          <li>💳 1日券¥2,800</li>
-          <li>✅ 地鐵、巴士無限搭乘</li>
-          <li>🎫 40+景點免費 (大阪城、通天閣、Harukas等)</li>
-          <li>💡 Day 9 使用超划算!</li>
+          <li>⏰ 注意末班車時間 (約23:00-24:00)</li>
+          <li>🚇 尖峰時段 (7-9點、17-19點) 很擠</li>
+          <li>📱 下載「Google Maps」、「乘換案內」APP</li>
+          <li>🎫 ICOCA卡進出站要刷同一張卡</li>
+          <li>🚌 京都巴士常誤點,預留緩衝時間</li>
+          <li>🚄 JR、私鐵是不同系統,不能互通</li>
+          <li>💺 特急列車需另購特急券</li>
         </ul>
       </div>
     </section>
@@ -1193,117 +1723,748 @@
         <thead>
           <tr>
             <th>項目</th>
-            <th>日幣</th>
-            <th>台幣</th>
+            <th>金額 (NT$)</th>
+            <th>備註</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>機票 (桃園↔關西)</td>
-            <td>-</td>
-            <td>NT$10,000</td>
+            <td><strong>✈️ 機票</strong></td>
+            <td>NT$8,000</td>
+            <td>Jetstar 來回 (含稅)</td>
           </tr>
           <tr>
-            <td>住宿 (8晚)</td>
-            <td>¥68,000</td>
-            <td>NT$14,700</td>
+            <td><strong>🏨 住宿</strong></td>
+            <td>NT$24,500</td>
+            <td>8晚 (櫻花台1晚 + 二條5晚 + 北新地2晚)</td>
           </tr>
           <tr>
-            <td>交通</td>
-            <td>¥14,590</td>
-            <td>NT$3,150</td>
+            <td><strong>🎫 環球影城門票</strong></td>
+            <td>NT$2,400</td>
+            <td>¥8,900 (匯率0.27)</td>
           </tr>
           <tr>
-            <td>門票 (不含快速通關)</td>
-            <td>¥17,380</td>
-            <td>NT$3,750</td>
+            <td><strong>⚡ 環球快速通關4</strong></td>
+            <td>NT$3,500</td>
+            <td>¥12,800 (浮動價格)</td>
           </tr>
           <tr>
-            <td>環球快速通關4 (選購)</td>
-            <td>¥10,000</td>
-            <td>NT$2,160</td>
+            <td><strong>🚇 交通費</strong></td>
+            <td>NT$2,700</td>
+            <td>ICOCA、巴士券、各種交通</td>
           </tr>
           <tr>
-            <td>餐飲 (9天)</td>
-            <td>¥40,000</td>
-            <td>NT$8,650</td>
+            <td><strong>🎫 景點門票</strong></td>
+            <td>NT$1,620</td>
+            <td>各寺廟、神社門票</td>
+          </tr>
+          <tr>
+            <td><strong>🍜 餐費</strong></td>
+            <td>NT$4,050</td>
+            <td>9天 × ¥1,500/天</td>
+          </tr>
+          <tr>
+            <td><strong>🛍️ 購物 + 伴手禮</strong></td>
+            <td>NT$1,500</td>
+            <td>藥妝、零食、紀念品 (預估)</td>
+          </tr>
+          <tr>
+            <td><strong>📱 網路 (WiFi/SIM卡)</strong></td>
+            <td>NT$500</td>
+            <td>9天上網</td>
           </tr>
           <tr class="total-row">
-            <td>小計 (不含快速通關)</td>
-            <td>¥139,970</td>
-            <td>NT$40,250</td>
-          </tr>
-          <tr class="total-row">
-            <td>小計 (含快速通關)</td>
-            <td>¥149,970</td>
-            <td>NT$42,410</td>
-          </tr>
-          <tr>
-            <td>購物/伴手禮</td>
-            <td>¥30,000</td>
-            <td>NT$6,500</td>
-          </tr>
-          <tr class="total-row" style="background: #667eea; color: white;">
-            <td>總預算 (含購物)</td>
-            <td>¥169,970</td>
-            <td>NT$46,750</td>
+            <td><strong>💵 總計</strong></td>
+            <td><strong>NT$48,760</strong></td>
+            <td>不含額外購物</td>
           </tr>
         </tbody>
       </table>
       
-      <div class="warning-box">
-        <h4>💵 預算建議</h4>
-        <ul>
-          <li><strong>基本款</strong> (不含快速通關): NT$46,750</li>
-          <li><strong>舒適款</strong> (含快速通關): NT$49,000</li>
-          <li><strong>豪華款</strong> (含購物): NT$60,000</li>
+      <div class="day-card">
+        <h3>💴 每日預算分配</h3>
+        <ul style="line-height: 2;">
+          <li><strong>Day 1:</strong> 交通 + 宵夜 ≈ ¥2,000</li>
+          <li><strong>Day 2:</strong> 交通 + 門票 + 餐費 ≈ ¥3,500</li>
+          <li><strong>Day 3:</strong> 門票 + 餐費 ≈ ¥5,000</li>
+          <li><strong>Day 4:</strong> 交通 + 門票 + 餐費 ≈ ¥4,000</li>
+          <li><strong>Day 5:</strong> 交通 + 門票 + 餐費 ≈ ¥4,500</li>
+          <li><strong>Day 6:</strong> 巴士券 + 門票 + 餐費 ≈ ¥4,200</li>
+          <li><strong>Day 7:</strong> 交通 + 門票 + 餐費 ≈ ¥3,500</li>
+          <li><strong>Day 8:</strong> 環球影城 + 餐費 ≈ ¥25,000</li>
+          <li><strong>Day 9:</strong> 門票 + 餐費 + 交通 ≈ ¥5,000</li>
         </ul>
-        <p style="margin-top: 10px; font-size: 1.1em;"><strong>建議準備: NT$55,000-65,000</strong></p>
+        <p style="margin-top: 20px; font-size: 1.1em;"><strong>💴 建議攜帶現金:</strong> ¥60,000 (約NT$16,200)</p>
+        <p style="margin-top: 10px;">💳 其他可刷卡或用ICOCA</p>
       </div>
       
-      <h3>💴 換匯建議</h3>
       <div class="tip-box">
+        <h4>💰 省錢小技巧</h4>
         <ul>
-          <li>現金: ¥50,000-80,000 (約NT$10,800-17,300)</li>
-          <li>信用卡: Visa/Master (大部分店家可刷卡)</li>
-          <li>匯率參考: 1日幣 ≈ 0.216台幣 (2026/01)</li>
+          <li>🏪 便利商店早餐 ¥300-500 (比餐廳便宜)</li>
+          <li>🍱 超市便當晚上7點後打折</li>
+          <li>💊 藥妝店比價 (唐吉訶德、松本清、大國)</li>
+          <li>🎫 景點門票可上Klook、KKday比價</li>
+          <li>🚇 多用ICOCA,比買單程票便宜</li>
+          <li>🍜 午餐吃定食,比晚餐便宜</li>
+          <li>💧 自備水壺,省飲料錢</li>
+          <li>🛍️ 免稅店滿¥5,000可退稅</li>
+        </ul>
+      </div>
+      
+      <div class="warning-box">
+        <h4>💳 付款方式</h4>
+        <ul>
+          <li>💴 <strong>現金:</strong> 小店、寺廟、部分餐廳只收現金</li>
+          <li>💳 <strong>信用卡:</strong> 大型商店、百貨公司、連鎖店可刷</li>
+          <li>📱 <strong>ICOCA:</strong> 便利商店、交通、部分餐廳</li>
+          <li>🏧 <strong>提款:</strong> 7-11 ATM可用台灣金融卡提日幣</li>
+          <li>💱 <strong>匯率:</strong> 建議在台灣換好 (機場匯率較差)</li>
+        </ul>
+      </div>
+    </section>
+    <section id="checklist">
+      <h2>✅ 行前清單</h2>
+      
+      <div class="day-card">
+        <h3>📄 重要文件</h3>
+        <ul class="checklist">
+          <li>護照 (效期需6個月以上)</li>
+          <li>護照影本 (分開放)</li>
+          <li>機票電子檔 (列印 + 存手機)</li>
+          <li>飯店訂房確認信</li>
+          <li>環球影城門票 + 快速通關</li>
+          <li>旅遊保險單</li>
+          <li>信用卡 (2張以上)</li>
+          <li>台灣駕照 (租車用)</li>
+          <li>緊急聯絡人資料</li>
+        </ul>
+      </div>
+      
+      <div class="day-card">
+        <h3>💰 金錢相關</h3>
+        <ul class="checklist">
+          <li>日幣現金 ¥60,000</li>
+          <li>信用卡 (VISA/Master)</li>
+          <li>台灣提款卡 (7-11可領日幣)</li>
+          <li>零錢包 (日本常用硬幣)</li>
+          <li>記帳本或APP</li>
+        </ul>
+      </div>
+      
+      <div class="day-card">
+        <h3>📱 3C電子產品</h3>
+        <ul class="checklist">
+          <li>手機 + 充電器</li>
+          <li>行動電源 (20,000mAh)</li>
+          <li>充電線 (多帶1條備用)</li>
+          <li>相機 + 記憶卡</li>
+          <li>轉接頭 (日本插座兩孔扁型)</li>
+          <li>延長線 (飯店插座少)</li>
+          <li>耳機</li>
+          <li>自拍棒 (選配)</li>
+        </ul>
+      </div>
+      
+      <div class="day-card">
+        <h3>👕 衣物</h3>
+        <ul class="checklist">
+          <li>保暖外套 (1月京都約5-10°C)</li>
+          <li>發熱衣 × 3</li>
+          <li>長袖上衣 × 4</li>
+          <li>長褲 × 3</li>
+          <li>內衣褲 × 9套</li>
+          <li>襪子 × 9雙</li>
+          <li>睡衣</li>
+          <li>圍巾、手套、毛帽</li>
+          <li>好走的鞋 (會走很多路)</li>
+          <li>拖鞋 (飯店用)</li>
+        </ul>
+      </div>
+      
+      <div class="day-card">
+        <h3>🧴 盥洗用品</h3>
+        <ul class="checklist">
+          <li>牙刷、牙膏</li>
+          <li>洗面乳</li>
+          <li>沐浴乳、洗髮精 (飯店有提供)</li>
+          <li>保養品、化妝品</li>
+          <li>防曬乳</li>
+          <li>護唇膏</li>
+          <li>乳液 (冬天很乾)</li>
+          <li>刮鬍刀</li>
+          <li>梳子</li>
+          <li>毛巾 (飯店有提供)</li>
+        </ul>
+      </div>
+      
+      <div class="day-card">
+        <h3>💊 醫藥用品</h3>
+        <ul class="checklist">
+          <li>個人常備藥</li>
+          <li>感冒藥</li>
+          <li>腸胃藥</li>
+          <li>止痛藥</li>
+          <li>OK繃</li>
+          <li>暈車藥</li>
+          <li>口罩</li>
+          <li>酒精濕紙巾</li>
+          <li>眼藥水</li>
+        </ul>
+      </div>
+      
+      <div class="day-card">
+        <h3>🎒 其他用品</h3>
+        <ul class="checklist">
+          <li>後背包 (日常使用)</li>
+          <li>環保袋 (日本塑膠袋要錢)</li>
+          <li>保溫瓶</li>
+          <li>雨傘或輕便雨衣</li>
+          <li>太陽眼鏡</li>
+          <li>筆記本、筆</li>
+          <li>暖暖包 (可在日本買)</li>
+          <li>壓縮袋 (節省行李空間)</li>
+          <li>夾鏈袋 (裝液體)</li>
+          <li>指甲剪</li>
+        </ul>
+      </div>
+      
+      <div class="warning-box">
+        <h4>🧳 行李打包注意事項</h4>
+        <ul>
+          <li>✈️ <strong>Jetstar 行李規定:</strong></li>
+          <li>📦 手提行李: 7kg (56×36×23cm)</li>
+          <li>🧳 托運行李: 需另外購買 (20kg約NT$1,000)</li>
+          <li>🔋 行動電源只能手提,不可托運</li>
+          <li>💧 液體超過100ml要托運</li>
+          <li>✂️ 剪刀、刀具要托運</li>
+          <li>🎁 回程預留行李空間給伴手禮</li>
+          <li>📸 貴重物品隨身攜帶</li>
         </ul>
       </div>
     </section>
     
     <section id="tips">
-      <h2>📱 實用資訊</h2>
+      <h2>💡 實用資訊</h2>
       
-      <h3>🌡️ 天氣 (1月京都/大阪)</h3>
       <div class="day-card">
-        <ul>
-          <li>🌡️ <strong>氣溫:</strong> 2-10°C</li>
-          <li>❄️ <strong>降雪:</strong> 偶有小雪</li>
-          <li>☔ <strong>降雨:</strong> 較少</li>
-          <li>🧥 <strong>穿著建議:</strong> 厚外套(羽絨衣)、發熱衣、圍巾、手套、毛帽、暖暖包</li>
-        </ul>
+        <h3>📱 必備APP</h3>
+        <div class="two-column">
+          <div>
+            <h4>🗺️ 交通類</h4>
+            <ul>
+              <li><strong>Google Maps</strong> - 導航必備</li>
+              <li><strong>乘換案內</strong> - 查詢交通路線</li>
+              <li><strong>ICOCA</strong> - 查詢餘額</li>
+            </ul>
+            
+            <h4>🍜 美食類</h4>
+            <ul>
+              <li><strong>Tabelog (食べログ)</strong> - 日本版米其林</li>
+              <li><strong>Google Maps</strong> - 查餐廳評價</li>
+            </ul>
+          </div>
+          <div>
+            <h4>🎫 旅遊類</h4>
+            <ul>
+              <li><strong>環球影城官方APP</strong> - 查等候時間</li>
+              <li><strong>Klook/KKday</strong> - 訂票優惠</li>
+            </ul>
+            
+            <h4>💬 翻譯類</h4>
+            <ul>
+              <li><strong>Google 翻譯</strong> - 即時翻譯</li>
+              <li><strong>VoiceTra</strong> - 語音翻譯</li>
+            </ul>
+          </div>
+        </div>
       </div>
       
-      <h3>📱 必備APP</h3>
       <div class="day-card">
-        <ul>
-          <li>📍 <strong>Google Maps:</strong> 導航必備</li>
-          <li>🚇 <strong>乘換案內:</strong> 查詢電車路線</li>
-          <li>🎢 <strong>環球影城官方APP:</strong> 查看等候時間</li>
-          <li>🗣️ <strong>Google翻譯:</strong> 離線翻譯</li>
-          <li>💴 <strong>匯率換算APP</strong></li>
-        </ul>
+        <h3>🌐 網路方案</h3>
+        <h4>選項1: WiFi分享器 (推薦)</h4>
+        <p>💰 價格: NT$99-199/天</p>
+        <p>✅ 優點: 多人共用、不限流量、電池續航力強</p>
+        <p>❌ 缺點: 要多帶一台機器、要充電</p>
+        <p>📍 租借: 機場取還、宅配</p>
+        
+        <h4 style="margin-top: 20px;">選項2: SIM卡</h4>
+        <p>💰 價格: NT$300-600 (5-8天)</p>
+        <p>✅ 優點: 輕便、不用充電</p>
+        <p>❌ 缺點: 只能一人用、要換卡</p>
+        <p>📍 購買: 機場、網路預訂</p>
+        
+        <h4 style="margin-top: 20px;">選項3: eSIM (推薦)</h4>
+        <p>💰 價格: NT$200-400</p>
+        <p>✅ 優點: 最方便、不用換卡、即買即用</p>
+        <p>❌ 缺點: 手機需支援eSIM</p>
+        <p>📍 購買: Klook、KKday</p>
       </div>
       
-      <h3>🎁 伴手禮推薦</h3>
       <div class="day-card">
-        <h4>京都:</h4>
+        <h3>🗣️ 常用日語</h3>
+        <div class="two-column">
+          <div>
+            <h4>基本用語</h4>
+            <ul>
+              <li>你好 - こんにちは (kon-ni-chi-wa)</li>
+              <li>謝謝 - ありがとう (a-ri-ga-tou)</li>
+              <li>不好意思 - すみません (su-mi-ma-sen)</li>
+              <li>對不起 - ごめんなさい (go-men-na-sai)</li>
+              <li>是 - はい (hai)</li>
+              <li>不是 - いいえ (i-i-e)</li>
+              <li>再見 - さようなら (sa-you-na-ra)</li>
+            </ul>
+            
+            <h4>餐廳用語</h4>
+            <ul>
+              <li>我要點餐 - 注文お願いします</li>
+              <li>這個 - これ (ko-re)</li>
+              <li>多少錢 - いくらですか</li>
+              <li>好吃 - 美味しい (o-i-shi-i)</li>
+              <li>結帳 - お会計お願いします</li>
+            </ul>
+          </div>
+          <div>
+            <h4>問路用語</h4>
+            <ul>
+              <li>廁所在哪 - トイレはどこですか</li>
+              <li>車站在哪 - 駅はどこですか</li>
+              <li>這裡 - ここ (ko-ko)</li>
+              <li>那裡 - そこ (so-ko)</li>
+              <li>直走 - まっすぐ (ma-ssu-gu)</li>
+              <li>左轉 - 左 (hi-da-ri)</li>
+              <li>右轉 - 右 (mi-gi)</li>
+            </ul>
+            
+            <h4>購物用語</h4>
+            <ul>
+              <li>可以試穿嗎 - 試着できますか</li>
+              <li>太貴了 - 高すぎます</li>
+              <li>便宜一點 - 安くしてください</li>
+              <li>可以刷卡嗎 - カード使えますか</li>
+              <li>免稅 - 免税 (men-zei)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="day-card">
+        <h3>🎌 日本文化禮儀</h3>
+        <h4>🚇 交通禮儀</h4>
         <ul>
-          <li>🍵 <strong>伊藤久右衛門:</strong> 抹茶巧克力、抹茶粉</li>
-          <li>🍡 <strong>八橋:</strong> 京都傳統和菓子</li>
-          <li>🍰 <strong>CRÈME DE LA CRÈME:</strong> 年輪蛋糕</li>
+          <li>✅ 電車內不講電話</li>
+          <li>✅ 排隊上車,先下後上</li>
+          <li>✅ 博愛座不要坐 (除非很空)</li>
+          <li>✅ 手扶梯靠左站 (大阪靠右)</li>
+          <li>✅ 不在車上飲食</li>
         </ul>
         
-        <h4>大阪:</h4>
+        <h4>🍜 用餐禮儀</h4>
         <ul>
-          <li>🥜 <strong>Rikuro老爺爺
+          <li>✅ 吃拉麵可以發出聲音</li>
+          <li>✅ 不要浪費食物</li>
+          <li>✅ 不用給小費</li>
+          <li>✅ 結帳在櫃檯,不在座位</li>
+          <li>✅ 說「ごちそうさまでした」(謝謝招待)</li>
+        </ul>
+        
+        <h4>⛩️ 神社寺廟禮儀</h4>
+        <ul>
+          <li>✅ 鳥居前鞠躬</li>
+          <li>✅ 走參道不走中間 (神明走的)</li>
+          <li>✅ 手水舍洗手漱口</li>
+          <li>✅ 參拜: 二拜二拍手一拜</li>
+          <li>✅ 注意「撮影禁止」標示</li>
+        </ul>
+        
+        <h4>🏨 其他禮儀</h4>
+        <ul>
+          <li>✅ 垃圾要分類,自己帶走</li>
+          <li>✅ 不邊走邊吃</li>
+          <li>✅ 不在公共場所大聲喧嘩</li>
+          <li>✅ 泡溫泉要先沖洗身體</li>
+          <li>✅ 進屋脫鞋</li>
+        </ul>
+      </div>
+      
+      <div class="day-card">
+        <h3>🛍️ 購物攻略</h3>
+        <h4>💊 藥妝店推薦</h4>
+        <ul>
+          <li><strong>唐吉訶德 (驚安殿堂)</strong> - 24小時營業,最便宜</li>
+          <li><strong>松本清</strong> - 分店多,有中文店員</li>
+          <li><strong>大國藥妝</strong> - 價格便宜</li>
+          <li><strong>Sundrug</strong> - 品項齊全</li>
+        </ul>
+        
+        <h4>🛒 必買清單</h4>
+        <ul>
+          <li>💊 休足時間 ¥500</li>
+          <li>💊 合利他命 ¥2,000-3,000</li>
+          <li>💊 龍角散 ¥1,000</li>
+          <li>💊 EVE止痛藥 ¥1,000</li>
+          <li>🍫 薯條三兄弟 ¥800</li>
+          <li>🍫 白色戀人 ¥1,000</li>
+          <li>🍵 抹茶產品 ¥500-2,000</li>
+          <li>🥟 551蓬萊豬肉包 ¥220/個</li>
+          <li>🍰 Rikuro老爺爺起司蛋糕 ¥800</li>
+        </ul>
+        
+        <h4>💳 免稅規定</h4>
+        <ul>
+          <li>✅ 同一天同一店消費滿¥5,000可退稅</li>
+          <li>✅ 退稅約8-10%</li>
+          <li>✅ 需出示護照</li>
+          <li>✅ 免稅品要密封,出境前不可開封</li>
+          <li>✅ 消耗品 (食品、藥妝) 和一般商品分開計算</li>
+        </ul>
+      </div>
+      
+      <div class="tip-box">
+        <h4>💡 旅遊小技巧</h4>
+        <ul>
+          <li>📸 早起拍照人少,光線也好</li>
+          <li>🏪 便利商店有免費熱水、廁所</li>
+          <li>🚻 百貨公司、車站廁所最乾淨</li>
+          <li>💴 零錢很重要,自動販賣機常用</li>
+          <li>🗺️ 拿免費地圖 (車站、飯店都有)</li>
+          <li>📱 飯店WiFi密碼拍照存手機</li>
+          <li>🧳 行李箱拍照,萬一遺失好找</li>
+          <li>📝 每天記帳,控制預算</li>
+        </ul>
+      </div>
+    </section>
+    <section id="emergency">
+      <h2>🚨 緊急聯絡資訊</h2>
+      
+      <div class="emergency-contact">
+        <h4>🚨 日本緊急電話</h4>
+        
+        <div class="contact-item">
+          <h5>🚓 警察</h5>
+          <p class="phone-number">110</p>
+          <p>遺失物品、犯罪、事故</p>
+        </div>
+        
+        <div class="contact-item">
+          <h5>🚑 救護車 / 消防車</h5>
+          <p class="phone-number">119</p>
+          <p>緊急醫療、火災</p>
+        </div>
+        
+        <div class="contact-item">
+          <h5>📞 日本旅遊服務中心</h5>
+          <p class="phone-number">050-3816-2787</p>
+          <p>24小時多語言服務 (中文、英文、日文、韓文)</p>
+          <p>旅遊諮詢、緊急協助</p>
+        </div>
+        
+        <div class="contact-item">
+          <h5>🇹🇼 駐大阪台北經濟文化辦事處</h5>
+          <p class="phone-number">06-6443-8481</p>
+          <p>📍 地址: 大阪市西區土佐堀1-4-8 日榮大樓4樓</p>
+          <p>⏰ 上班時間: 09:00-12:00, 13:00-17:00 (週一至週五)</p>
+          <p>🆘 急難救助: 080-6552-4764 (24小時)</p>
+        </div>
+        
+        <div class="contact-item">
+          <h5>🏥 關西地區醫院 (有中文服務)</h5>
+          <p><strong>京都:</strong> 京都第一紅十字醫院</p>
+          <p class="phone-number">075-561-1121</p>
+          <p>📍 京都市東山区本町15-749</p>
+          
+          <p style="margin-top: 10px;"><strong>大阪:</strong> 大阪市立總合醫療中心</p>
+          <p class="phone-number">06-6929-1221</p>
+          <p>📍 大阪市都島区都島本通2-13-22</p>
+        </div>
+      </div>
+      
+      <div class="danger-box">
+        <h4>🆘 緊急狀況處理</h4>
+        
+        <h5>💳 信用卡遺失</h5>
+        <ul>
+          <li>立即撥打信用卡背面的24小時客服電話</li>
+          <li>VISA: 00531-44-0022</li>
+          <li>MasterCard: 00531-11-3886</li>
+          <li>JCB: 0120-794-082</li>
+        </ul>
+        
+        <h5 style="margin-top: 15px;">🛂 護照遺失</h5>
+        <ul>
+          <li>1. 到警察局報案,取得遺失證明</li>
+          <li>2. 聯絡駐大阪辦事處: 06-6443-8481</li>
+          <li>3. 準備: 護照影本、2吋照片2張、遺失證明</li>
+          <li>4. 申請「入國證明書」(返台用)</li>
+        </ul>
+        
+        <h5 style="margin-top: 15px;">🧳 行李遺失</h5>
+        <ul>
+          <li>機場: 立即到航空公司櫃檯申報</li>
+          <li>電車: 到車站失物招領處 (遺失物センター)</li>
+          <li>計程車: 記下車號,聯絡計程車公司</li>
+        </ul>
+        
+        <h5 style="margin-top: 15px;">🤒 生病受傷</h5>
+        <ul>
+          <li>輕症: 藥局買成藥 (藥劑師會協助)</li>
+          <li>重症: 撥打119叫救護車</li>
+          <li>就醫記得索取診斷證明書 (保險理賠用)</li>
+          <li>保留所有收據</li>
+        </ul>
+      </div>
+      
+      <div class="tip-box">
+        <h4>📝 重要資訊備份</h4>
+        <ul>
+          <li>📸 護照資料頁拍照存手機</li>
+          <li>📸 信用卡正反面拍照 (遮住部分卡號)</li>
+          <li>📸 機票、飯店訂房確認信截圖</li>
+          <li>📸 旅遊保險單拍照</li>
+          <li>📝 緊急聯絡電話抄在紙上 (手機沒電時用)</li>
+          <li>☁️ 重要文件上傳雲端 (Google Drive、Dropbox)</li>
+          <li>📧 重要資訊email給自己</li>
+        </ul>
+      </div>
+    </section>
+    
+    <section id="photo">
+      <h2>📸 拍照攻略</h2>
+      
+      <div class="day-card">
+        <h3>📍 京都必拍景點</h3>
+        
+        <div class="photo-spot">
+          <h5>⛩️ 伏見稻荷大社 - 千本鳥居</h5>
+          <p><strong>最佳時間:</strong> 早上7-9點 (人少、光線好)</p>
+          <p><strong>拍照位置:</strong></p>
+          <ul>
+            <li>千本鳥居入口處 (經典角度)</li>
+            <li>鳥居隧道內 (仰拍、俯拍都好看)</li>
+            <li>四辻展望台 (俯瞰京都市景)</li>
+          </ul>
+          <p><strong>技巧:</strong> 穿和服拍照超有感覺,紅色鳥居配和服超美</p>
+        </div>
+        
+        <div class="photo-spot">
+          <h5>🏯 金閣寺</h5>
+          <p><strong>最佳時間:</strong> 早上9點開門時 (人少)</p>
+          <p><strong>拍照位置:</strong></p>
+          <ul>
+            <li>鏡湖池畔 (經典倒影)</li>
+            <li>夕佳亭旁 (不同角度)</li>
+          </ul>
+          <p><strong>技巧:</strong> 陰天拍起來更金光閃閃</p>
+        </div>
+        
+        <div class="photo-spot">
+          <h5>🎋 嵐山竹林</h5>
+          <p><strong>最佳時間:</strong> 早上7-8點 (人少、光線柔和)</p>
+          <p><strong>拍照位置:</strong></p>
+          <ul>
+            <li>竹林小徑中段 (兩側竹林包圍)</li>
+            <li>仰拍竹林 (超有意境)</li>
+          </ul>
+          <p><strong>技巧:</strong> 穿和服、用慢快門拍出動態感</p>
+        </div>
+        
+        <div class="photo-spot">
+          <h5>🏯 清水寺</h5>
+          <p><strong>最佳時間:</strong> 早上6點開門時、傍晚夕陽</p>
+          <p><strong>拍照位置:</strong></p>
+          <ul>
+            <li>清水舞台 (從音羽瀑布方向仰拍)</li>
+            <li>三年坂、二年坂 (石板路超好拍)</li>
+            <li>地主神社戀愛石</li>
+          </ul>
+          <p><strong>技巧:</strong> 穿和服拍照,古色古香</p>
+        </div>
+        
+        <div class="photo-spot">
+          <h5>🎎 祇園花見小路</h5>
+          <p><strong>最佳時間:</strong> 傍晚5-7點 (可能遇到藝妓)</p>
+          <p><strong>拍照位置:</strong></p>
+          <ul>
+            <li>花見小路南段 (石板路、町家建築)</li>
+            <li>八坂神社 (朱紅色建築)</li>
+          </ul>
+          <p><strong>技巧:</strong> 遇到藝妓不要追拍,保持距離禮貌拍攝</p>
+        </div>
+      </div>
+      
+      <div class="day-card">
+        <h3>📍 奈良必拍景點</h3>
+        
+        <div class="photo-spot">
+          <h5>🦌 奈良公園</h5>
+          <p><strong>最佳時間:</strong> 早上8-10點 (鹿比較溫馴)</p>
+          <p><strong>拍照位置:</strong></p>
+          <ul>
+            <li>餵鹿互動照 (鹿仙貝當道具)</li>
+            <li>鹿群在草地上 (自然風景)</li>
+            <li>東大寺前的鹿 (建築+鹿)</li>
+          </ul>
+          <p><strong>技巧:</strong> 鹿仙貝舉高,鹿會站起來,超可愛</p>
+        </div>
+        
+        <div class="photo-spot">
+          <h5>🏛️ 東大寺</h5>
+          <p><strong>最佳時間:</strong> 早上9點開門時</p>
+          <p><strong>拍照位置:</strong></p>
+          <ul>
+            <li>南大門 (巨大木造建築)</li>
+            <li>大佛殿正面 (世界最大木造建築)</li>
+            <li>大佛內部 (15公尺高大佛)</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="day-card">
+        <h3>📍 大阪必拍景點</h3>
+        
+        <div class="photo-spot">
+          <h5>🦀 道頓堀</h5>
+          <p><strong>最佳時間:</strong> 晚上7-9點 (霓虹燈全開)</p>
+          <p><strong>拍照位置:</strong></p>
+          <ul>
+            <li>戎橋 (固力果跑跑人招牌)</li>
+            <li>道頓堀川 (河道倒影)</li>
+            <li>大螃蟹招牌 (かに道楽)</li>
+            <li>章魚燒招牌</li>
+          </ul>
+          <p><strong>技巧:</strong> 夜景用腳架或提高ISO,拍出霓虹燈效果</p>
+        </div>
+        
+        <div class="photo-spot">
+          <h5>🏯 大阪城</h5>
+          <p><strong>最佳時間:</strong> 早上9點、傍晚夕陽</p>
+          <p><strong>拍照位置:</strong></p>
+          <ul>
+            <li>天守閣正面 (經典角度)</li>
+            <li>護城河倒影</li>
+            <li>西之丸庭園 (春天櫻花季超美)</li>
+          </ul>
+        </div>
+        
+        <div class="photo-spot">
+          <h5>🎢 環球影城</h5>
+          <p><strong>必拍位置:</strong></p>
+          <ul>
+            <li>🌐 環球影城地球儀 (入口處)</li>
+            <li>🏰 霍格華茲城堡 (哈利波特園區)</li>
+            <li>🍄 蘑菇王國 (瑪利歐世界)</li>
+            <li>🦖 侏羅紀公園大門</li>
+            <li>😄 小小兵樂園</li>
+          </ul>
+          <p><strong>技巧:</strong> 早上、傍晚人少,拍照最佳時機</p>
+        </div>
+      </div>
+      
+      <div class="tip-box">
+        <h4>📸 拍照小技巧</h4>
+        <ul>
+          <li>🌅 <strong>黃金時段:</strong> 日出後1小時、日落前1小時 (光線最美)</li>
+          <li>👥 <strong>避開人潮:</strong> 早起、平日、用餐時間</li>
+          <li>📱 <strong>手機拍照:</strong> 開啟HDR、用九宮格構圖</li>
+          <li>📷 <strong>相機設定:</strong> 光圈優先模式、ISO自動</li>
+          <li>🎨 <strong>構圖技巧:</strong> 三分法、對角線、框景</li>
+          <li>👘 <strong>穿和服:</strong> 拍照超有感覺,租借¥3,000-5,000</li>
+          <li>🤳 <strong>自拍:</strong> 用自拍棒或腳架,定時拍攝</li>
+          <li>🚫 <strong>注意禁拍:</strong> 看到「撮影禁止」標示不要拍</li>
+        </ul>
+      </div>
+      
+      <div class="warning-box">
+        <h4>⚠️ 拍照注意事項</h4>
+        <ul>
+          <li>🚫 寺廟內部通常禁止拍照</li>
+          <li>🚫 不要拍攝藝妓特寫 (很失禮)</li>
+          <li>🚫 不要擋住其他遊客</li>
+          <li>🚫 不要為了拍照做危險動作</li>
+          <li>🚫 環球影城部分遊樂設施禁止拍照</li>
+          <li>✅ 尊重當地文化和隱私</li>
+        </ul>
+      </div>
+    </section>
+    
+    <footer>
+      <h2 style="color: white; border: none; margin-bottom: 20px;">🎉 祝旅途愉快!</h2>
+      <p style="font-size: 1.1em; margin-bottom: 15px;">2026 日本關西 9天深度遊</p>
+      <p>京都 × 奈良 × 大阪 完整攻略</p>
+      <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">
+        📅 2026/01/17 (六) ~ 2026/01/25 (日)
+      </p>
+      <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.3);">
+        <p style="font-size: 0.9em;">💡 行前記得:</p>
+        <p style="font-size: 0.9em;">✅ 確認護照效期 | ✅ 購買旅遊保險 | ✅ 預訂WiFi/SIM卡</p>
+        <p style="font-size: 0.9em;">✅ 下載必備APP | ✅ 換日幣 | ✅ 列印重要文件</p>
+      </div>
+      <div style="margin-top: 30px;">
+        <button class="print-button" onclick="window.print()">🖨️ 列印完整行程</button>
+      </div>
+      <p style="margin-top: 30px; font-size: 0.85em; opacity: 0.7;">
+        © 2026 | 製作日期: 2026/01/16
+      </p>
+      <p style="margin-top: 10px; font-size: 1.2em;">
+        🇯🇵 いってらっしゃい (一路順風)!
+      </p>
+    </footer>
+  </div>
+  
+  <script>
+    // 平滑滾動
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+    
+    // 返回頂部按鈕 (滾動時顯示)
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 300) {
+        if (!document.getElementById('backToTop')) {
+          const btn = document.createElement('button');
+          btn.id = 'backToTop';
+          btn.innerHTML = '⬆️';
+          btn.style.cssText = `
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5em;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: all 0.3s;
+          `;
+          btn.onmouseover = () => btn.style.background = '#764ba2';
+          btn.onmouseout = () => btn.style.background = '#667eea';
+          btn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+          document.body.appendChild(btn);
+        }
+      } else {
+        const btn = document.getElementById('backToTop');
+        if (btn) btn.remove();
+      }
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
